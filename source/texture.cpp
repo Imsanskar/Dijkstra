@@ -9,11 +9,12 @@
 #include <cstddef>
 #include <cstdio>
 
-Texture::Texture(){
+Texture::Texture(std::string fontPath){
 	texture = NULL;
 	width = 0;
 	height = 0;
-	font = NULL;
+	TTF_Init();
+	font = TTF_OpenFont(fontPath.c_str(), 28);
 }
 
 bool Texture::loadFromText(SDL_Renderer *renderer, std::string text, SDL_Color color){
@@ -50,3 +51,25 @@ void Texture::setColor(Uint8 r, Uint8 g, Uint8 b, Uint8 alpha){
 }
 
 
+void Texture::render(SDL_Renderer *renderer,int x, int y, SDL_Rect* clip, double angle, SDL_Point* center, SDL_RendererFlip flip){	
+	SDL_Rect renderRect = {x, y, width, height};
+	if(clip != NULL){
+		renderRect.w = clip->w;
+		renderRect.h = clip->h;
+	}
+
+	//render to screen
+	SDL_RenderCopyEx(renderer, texture, clip, &renderRect, angle, center, flip);
+}
+
+int Texture::getWidth(){
+	return width;
+}
+
+int Texture::getHeight(){
+	return height;
+}
+
+Texture::~Texture(){
+
+}

@@ -7,6 +7,7 @@
 
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_pixels.h>
+#include <SDL2/SDL_render.h>
 #include <SDL2/SDL_stdinc.h>
 #include <SDL2/SDL_ttf.h>
 #include <string>
@@ -18,7 +19,7 @@ private:
 	SDL_Texture *texture;
 public:
 	//Constructor
-	Texture();
+	Texture(std::string fontPath);
 
 	//Dealloacted the memory
 	~Texture();
@@ -33,7 +34,11 @@ public:
 	void setColor(Uint8 r, Uint8 g, Uint8 b, Uint8 alpha);
 
 	//render
-	void render(int x, int y, SDL_Rect* clip = NULL, double angle = 0.0, SDL_Point* center = NULL, SDL_RendererFlip flip = SDL_FLIP_NONE);
+	void render(SDL_Renderer *renderer,int x, int y, SDL_Rect* clip = NULL, double angle = 0.0, SDL_Point* center = NULL, SDL_RendererFlip flip = SDL_FLIP_NONE);
+
+	int getWidth();
+
+	int getHeight();
 };
 
 

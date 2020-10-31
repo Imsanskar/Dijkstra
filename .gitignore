@@ -4,3 +4,4 @@ DSA_PROJECT
 DSA_PROJECT.cbp
 Makefile
 cmake_install.cmake
+*.swp
