@@ -7,6 +7,9 @@
 
 #include <SDL2/SDL_pixels.h>
 #include <string>
+#include "texture.h"
+
+
 class Node{
 public:
 	int xPos;

@@ -37,7 +37,7 @@ int main(int argc, char *argv[])
 	/* int i = 0; */
 
 	Dijkstra dijkstra(720, 1000);
-	dijkstra.render();
+	dijkstra.EventHandler();
 	/* while(!flag){ */
 	/* 	while(SDL_PollEvent(&e) != 0){ */
 	/* 		if(e.type == SDL_QUIT) */
