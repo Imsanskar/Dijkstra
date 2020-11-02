@@ -21,7 +21,7 @@ void Graph::addEdge(Edge edge){
 	
 }
 
-bool Graph::isNodeClicked(float x, float y){
+bool Graph::isNodeClicked(int x, int y){
 	for(auto &node: edges){
 		if(node.first.isPressed(x,y))
 			return true;

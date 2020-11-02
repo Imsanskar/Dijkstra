@@ -24,11 +24,9 @@ void Dijkstra::render(){
 void Dijkstra::EventHandler(){
 	bool flag = true;
 	int i = 0;
-    SDL_SetRenderDrawColor(renderer, 0, 255, 0, 255);
     SDL_RenderClear(renderer);
 	while(flag){
-
-        SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
+        SDL_SetRenderDrawColor(renderer, 0, 255, 0, 255);
 		while(SDL_PollEvent(&event) != 0){
 			if(event.type == SDL_QUIT)
 				flag = false;	
@@ -42,7 +40,7 @@ void Dijkstra::EventHandler(){
 					}
 					else{
 						printf("Program log: Button pressed\n");
-                        DrawCircle(renderer,mouseX,mouseY,10);
+//                        DrawCircle(renderer,mouseX,mouseY,20);
                         SDL_RenderPresent(renderer);
 						Node node(i, event.button.x, event.button.y, {255, 255, 255});
 						graph.addNode(node);
@@ -51,9 +49,9 @@ void Dijkstra::EventHandler(){
 				}
 			}
 		}
-
-		//render();
-		//SDL_RenderPresent(renderer);
+        SDL_RenderClear(renderer);
+		render();
+		SDL_RenderPresent(renderer);
 	}
 }
 

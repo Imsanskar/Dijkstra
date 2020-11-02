@@ -25,7 +25,7 @@ public:
 	Node(int _value, int x, int y, SDL_Color _color);
 
 	//is node pressed
-	bool isPressed(float x, float y) const;
+	bool isPressed(int x, int y) const;
 
 	//renderer
 	void render(SDL_Renderer *renderer, TTF_Font *font) const;

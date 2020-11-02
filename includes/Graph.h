@@ -24,7 +24,7 @@ public:
 
 	void render(SDL_Renderer *renderer);
 
-	bool isNodeClicked(float x, float y);
+	bool isNodeClicked(int x, int y);
 };
 
 
