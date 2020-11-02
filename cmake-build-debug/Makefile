@@ -170,6 +170,141 @@ main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/DSA_PROJECT.dir/build.make CMakeFiles/DSA_PROJECT.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+source/Djikstra.o: source/Djikstra.cpp.o
+
+.PHONY : source/Djikstra.o
+
+# target to build an object file
+source/Djikstra.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DSA_PROJECT.dir/build.make CMakeFiles/DSA_PROJECT.dir/source/Djikstra.cpp.o
+.PHONY : source/Djikstra.cpp.o
+
+source/Djikstra.i: source/Djikstra.cpp.i
+
+.PHONY : source/Djikstra.i
+
+# target to preprocess a source file
+source/Djikstra.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DSA_PROJECT.dir/build.make CMakeFiles/DSA_PROJECT.dir/source/Djikstra.cpp.i
+.PHONY : source/Djikstra.cpp.i
+
+source/Djikstra.s: source/Djikstra.cpp.s
+
+.PHONY : source/Djikstra.s
+
+# target to generate assembly for a file
+source/Djikstra.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DSA_PROJECT.dir/build.make CMakeFiles/DSA_PROJECT.dir/source/Djikstra.cpp.s
+.PHONY : source/Djikstra.cpp.s
+
+source/Edge.o: source/Edge.cpp.o
+
+.PHONY : source/Edge.o
+
+# target to build an object file
+source/Edge.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DSA_PROJECT.dir/build.make CMakeFiles/DSA_PROJECT.dir/source/Edge.cpp.o
+.PHONY : source/Edge.cpp.o
+
+source/Edge.i: source/Edge.cpp.i
+
+.PHONY : source/Edge.i
+
+# target to preprocess a source file
+source/Edge.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DSA_PROJECT.dir/build.make CMakeFiles/DSA_PROJECT.dir/source/Edge.cpp.i
+.PHONY : source/Edge.cpp.i
+
+source/Edge.s: source/Edge.cpp.s
+
+.PHONY : source/Edge.s
+
+# target to generate assembly for a file
+source/Edge.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DSA_PROJECT.dir/build.make CMakeFiles/DSA_PROJECT.dir/source/Edge.cpp.s
+.PHONY : source/Edge.cpp.s
+
+source/Graph.o: source/Graph.cpp.o
+
+.PHONY : source/Graph.o
+
+# target to build an object file
+source/Graph.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DSA_PROJECT.dir/build.make CMakeFiles/DSA_PROJECT.dir/source/Graph.cpp.o
+.PHONY : source/Graph.cpp.o
+
+source/Graph.i: source/Graph.cpp.i
+
+.PHONY : source/Graph.i
+
+# target to preprocess a source file
+source/Graph.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DSA_PROJECT.dir/build.make CMakeFiles/DSA_PROJECT.dir/source/Graph.cpp.i
+.PHONY : source/Graph.cpp.i
+
+source/Graph.s: source/Graph.cpp.s
+
+.PHONY : source/Graph.s
+
+# target to generate assembly for a file
+source/Graph.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DSA_PROJECT.dir/build.make CMakeFiles/DSA_PROJECT.dir/source/Graph.cpp.s
+.PHONY : source/Graph.cpp.s
+
+source/Node.o: source/Node.cpp.o
+
+.PHONY : source/Node.o
+
+# target to build an object file
+source/Node.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DSA_PROJECT.dir/build.make CMakeFiles/DSA_PROJECT.dir/source/Node.cpp.o
+.PHONY : source/Node.cpp.o
+
+source/Node.i: source/Node.cpp.i
+
+.PHONY : source/Node.i
+
+# target to preprocess a source file
+source/Node.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DSA_PROJECT.dir/build.make CMakeFiles/DSA_PROJECT.dir/source/Node.cpp.i
+.PHONY : source/Node.cpp.i
+
+source/Node.s: source/Node.cpp.s
+
+.PHONY : source/Node.s
+
+# target to generate assembly for a file
+source/Node.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DSA_PROJECT.dir/build.make CMakeFiles/DSA_PROJECT.dir/source/Node.cpp.s
+.PHONY : source/Node.cpp.s
+
+source/texture.o: source/texture.cpp.o
+
+.PHONY : source/texture.o
+
+# target to build an object file
+source/texture.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DSA_PROJECT.dir/build.make CMakeFiles/DSA_PROJECT.dir/source/texture.cpp.o
+.PHONY : source/texture.cpp.o
+
+source/texture.i: source/texture.cpp.i
+
+.PHONY : source/texture.i
+
+# target to preprocess a source file
+source/texture.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DSA_PROJECT.dir/build.make CMakeFiles/DSA_PROJECT.dir/source/texture.cpp.i
+.PHONY : source/texture.cpp.i
+
+source/texture.s: source/texture.cpp.s
+
+.PHONY : source/texture.s
+
+# target to generate assembly for a file
+source/texture.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DSA_PROJECT.dir/build.make CMakeFiles/DSA_PROJECT.dir/source/texture.cpp.s
+.PHONY : source/texture.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -182,6 +317,21 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... source/Djikstra.o"
+	@echo "... source/Djikstra.i"
+	@echo "... source/Djikstra.s"
+	@echo "... source/Edge.o"
+	@echo "... source/Edge.i"
+	@echo "... source/Edge.s"
+	@echo "... source/Graph.o"
+	@echo "... source/Graph.i"
+	@echo "... source/Graph.s"
+	@echo "... source/Node.o"
+	@echo "... source/Node.i"
+	@echo "... source/Node.s"
+	@echo "... source/texture.o"
+	@echo "... source/texture.i"
+	@echo "... source/texture.s"
 .PHONY : help
 
 

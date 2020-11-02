@@ -90,17 +90,92 @@ CMakeFiles/DSA_PROJECT.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/DSA_PROJECT.dir/main.cpp.s"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sgr/CLionProjects/DSA_Projects/main.cpp -o CMakeFiles/DSA_PROJECT.dir/main.cpp.s
 
+CMakeFiles/DSA_PROJECT.dir/source/texture.cpp.o: CMakeFiles/DSA_PROJECT.dir/flags.make
+CMakeFiles/DSA_PROJECT.dir/source/texture.cpp.o: ../source/texture.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sgr/CLionProjects/DSA_Projects/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/DSA_PROJECT.dir/source/texture.cpp.o"
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/DSA_PROJECT.dir/source/texture.cpp.o -c /home/sgr/CLionProjects/DSA_Projects/source/texture.cpp
+
+CMakeFiles/DSA_PROJECT.dir/source/texture.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/DSA_PROJECT.dir/source/texture.cpp.i"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sgr/CLionProjects/DSA_Projects/source/texture.cpp > CMakeFiles/DSA_PROJECT.dir/source/texture.cpp.i
+
+CMakeFiles/DSA_PROJECT.dir/source/texture.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/DSA_PROJECT.dir/source/texture.cpp.s"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sgr/CLionProjects/DSA_Projects/source/texture.cpp -o CMakeFiles/DSA_PROJECT.dir/source/texture.cpp.s
+
+CMakeFiles/DSA_PROJECT.dir/source/Djikstra.cpp.o: CMakeFiles/DSA_PROJECT.dir/flags.make
+CMakeFiles/DSA_PROJECT.dir/source/Djikstra.cpp.o: ../source/Djikstra.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sgr/CLionProjects/DSA_Projects/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/DSA_PROJECT.dir/source/Djikstra.cpp.o"
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/DSA_PROJECT.dir/source/Djikstra.cpp.o -c /home/sgr/CLionProjects/DSA_Projects/source/Djikstra.cpp
+
+CMakeFiles/DSA_PROJECT.dir/source/Djikstra.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/DSA_PROJECT.dir/source/Djikstra.cpp.i"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sgr/CLionProjects/DSA_Projects/source/Djikstra.cpp > CMakeFiles/DSA_PROJECT.dir/source/Djikstra.cpp.i
+
+CMakeFiles/DSA_PROJECT.dir/source/Djikstra.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/DSA_PROJECT.dir/source/Djikstra.cpp.s"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sgr/CLionProjects/DSA_Projects/source/Djikstra.cpp -o CMakeFiles/DSA_PROJECT.dir/source/Djikstra.cpp.s
+
+CMakeFiles/DSA_PROJECT.dir/source/Node.cpp.o: CMakeFiles/DSA_PROJECT.dir/flags.make
+CMakeFiles/DSA_PROJECT.dir/source/Node.cpp.o: ../source/Node.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sgr/CLionProjects/DSA_Projects/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/DSA_PROJECT.dir/source/Node.cpp.o"
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/DSA_PROJECT.dir/source/Node.cpp.o -c /home/sgr/CLionProjects/DSA_Projects/source/Node.cpp
+
+CMakeFiles/DSA_PROJECT.dir/source/Node.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/DSA_PROJECT.dir/source/Node.cpp.i"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sgr/CLionProjects/DSA_Projects/source/Node.cpp > CMakeFiles/DSA_PROJECT.dir/source/Node.cpp.i
+
+CMakeFiles/DSA_PROJECT.dir/source/Node.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/DSA_PROJECT.dir/source/Node.cpp.s"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sgr/CLionProjects/DSA_Projects/source/Node.cpp -o CMakeFiles/DSA_PROJECT.dir/source/Node.cpp.s
+
+CMakeFiles/DSA_PROJECT.dir/source/Graph.cpp.o: CMakeFiles/DSA_PROJECT.dir/flags.make
+CMakeFiles/DSA_PROJECT.dir/source/Graph.cpp.o: ../source/Graph.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sgr/CLionProjects/DSA_Projects/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/DSA_PROJECT.dir/source/Graph.cpp.o"
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/DSA_PROJECT.dir/source/Graph.cpp.o -c /home/sgr/CLionProjects/DSA_Projects/source/Graph.cpp
+
+CMakeFiles/DSA_PROJECT.dir/source/Graph.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/DSA_PROJECT.dir/source/Graph.cpp.i"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sgr/CLionProjects/DSA_Projects/source/Graph.cpp > CMakeFiles/DSA_PROJECT.dir/source/Graph.cpp.i
+
+CMakeFiles/DSA_PROJECT.dir/source/Graph.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/DSA_PROJECT.dir/source/Graph.cpp.s"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sgr/CLionProjects/DSA_Projects/source/Graph.cpp -o CMakeFiles/DSA_PROJECT.dir/source/Graph.cpp.s
+
+CMakeFiles/DSA_PROJECT.dir/source/Edge.cpp.o: CMakeFiles/DSA_PROJECT.dir/flags.make
+CMakeFiles/DSA_PROJECT.dir/source/Edge.cpp.o: ../source/Edge.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sgr/CLionProjects/DSA_Projects/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/DSA_PROJECT.dir/source/Edge.cpp.o"
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/DSA_PROJECT.dir/source/Edge.cpp.o -c /home/sgr/CLionProjects/DSA_Projects/source/Edge.cpp
+
+CMakeFiles/DSA_PROJECT.dir/source/Edge.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/DSA_PROJECT.dir/source/Edge.cpp.i"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sgr/CLionProjects/DSA_Projects/source/Edge.cpp > CMakeFiles/DSA_PROJECT.dir/source/Edge.cpp.i
+
+CMakeFiles/DSA_PROJECT.dir/source/Edge.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/DSA_PROJECT.dir/source/Edge.cpp.s"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sgr/CLionProjects/DSA_Projects/source/Edge.cpp -o CMakeFiles/DSA_PROJECT.dir/source/Edge.cpp.s
+
 # Object files for target DSA_PROJECT
 DSA_PROJECT_OBJECTS = \
-"CMakeFiles/DSA_PROJECT.dir/main.cpp.o"
+"CMakeFiles/DSA_PROJECT.dir/main.cpp.o" \
+"CMakeFiles/DSA_PROJECT.dir/source/texture.cpp.o" \
+"CMakeFiles/DSA_PROJECT.dir/source/Djikstra.cpp.o" \
+"CMakeFiles/DSA_PROJECT.dir/source/Node.cpp.o" \
+"CMakeFiles/DSA_PROJECT.dir/source/Graph.cpp.o" \
+"CMakeFiles/DSA_PROJECT.dir/source/Edge.cpp.o"
 
 # External object files for target DSA_PROJECT
 DSA_PROJECT_EXTERNAL_OBJECTS =
 
 DSA_PROJECT: CMakeFiles/DSA_PROJECT.dir/main.cpp.o
+DSA_PROJECT: CMakeFiles/DSA_PROJECT.dir/source/texture.cpp.o
+DSA_PROJECT: CMakeFiles/DSA_PROJECT.dir/source/Djikstra.cpp.o
+DSA_PROJECT: CMakeFiles/DSA_PROJECT.dir/source/Node.cpp.o
+DSA_PROJECT: CMakeFiles/DSA_PROJECT.dir/source/Graph.cpp.o
+DSA_PROJECT: CMakeFiles/DSA_PROJECT.dir/source/Edge.cpp.o
 DSA_PROJECT: CMakeFiles/DSA_PROJECT.dir/build.make
 DSA_PROJECT: CMakeFiles/DSA_PROJECT.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/sgr/CLionProjects/DSA_Projects/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable DSA_PROJECT"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/sgr/CLionProjects/DSA_Projects/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable DSA_PROJECT"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/DSA_PROJECT.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
