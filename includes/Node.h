@@ -7,6 +7,7 @@
 
 #include <SDL2/SDL_pixels.h>
 #include <SDL2/SDL_render.h>
+#include <SDL2/SDL_ttf.h>
 #include <string>
 #include "texture.h"
 
@@ -27,7 +28,7 @@ public:
 	bool isPressed(float x, float y) const;
 
 	//renderer
-	void render(SDL_Renderer *renderer) const;
+	void render(SDL_Renderer *renderer, TTF_Font *font) const;
 
 	bool operator <(const Node node) const;
 };

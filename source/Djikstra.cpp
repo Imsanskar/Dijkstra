@@ -14,6 +14,7 @@
 Dijkstra::Dijkstra(const int height, const int width){
 	window = SDL_CreateWindow("Dijkstra", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, width, height, SDL_WINDOW_SHOWN);
 	renderer = SDL_CreateRenderer(window, -1, 0);
+	TTF_Init();
 }
 
 void Dijkstra::render(){

@@ -14,15 +14,9 @@ Texture::Texture(std::string fontPath){
 	texture = NULL;
 	width = 0;
 	height = 0;
-	TTF_Init();
-	fontPath = "./Media/Fonts/font.ttf";
-	font = TTF_OpenFont(fontPath.c_str(), 28);
-	if(font == NULL)
-	    printf("Font is null\n");
-
 }
 
-bool Texture::loadFromText(SDL_Renderer *renderer, std::string text, SDL_Color color){
+bool Texture::loadFromText(SDL_Renderer *renderer, std::string text, SDL_Color color, TTF_Font *font){
 	free(texture);
 
 	SDL_Surface *surface = TTF_RenderText_Solid(font, text.c_str(), color);
@@ -76,5 +70,4 @@ int Texture::getHeight(){
 }
 
 Texture::~Texture(){
-
 }

@@ -14,7 +14,6 @@
 
 class Texture{
 private:
-	TTF_Font *font;
 	int height, width;
 	SDL_Texture *texture;
 public:
@@ -28,7 +27,7 @@ public:
 	bool loadFont(std::string fontPath);
 
 	//Creates image from font string
-	bool loadFromText(SDL_Renderer *renderer, std::string text, SDL_Color color);
+	bool loadFromText(SDL_Renderer *renderer, std::string text, SDL_Color color, TTF_Font *font = NULL);
 	
 	//set color
 	void setColor(Uint8 r, Uint8 g, Uint8 b, Uint8 alpha);

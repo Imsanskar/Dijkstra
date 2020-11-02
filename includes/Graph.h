@@ -7,12 +7,14 @@
 
 #include "Node.h"
 #include "Edge.h"
+#include <SDL2/SDL_ttf.h>
 #include<map>
 #include<vector>
 
 class Graph{
 public:
 	std::map<Node,std::vector<Node>> edges;
+	TTF_Font *font;
 public:
 	void addNode(Node node);
 	
