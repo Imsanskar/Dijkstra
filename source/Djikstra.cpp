@@ -4,6 +4,7 @@
 
 #include "../includes/Djikstra.h"
 #include <SDL2/SDL_events.h>
+#include <SDL2/SDL_mouse.h>
 #include <SDL2/SDL_rect.h>
 #include <SDL2/SDL_render.h>
 #include <SDL2/SDL_video.h>
@@ -16,7 +17,7 @@ Dijkstra::Dijkstra(const int height, const int width){
 }
 
 void Dijkstra::render(){
-
+	graph.render(renderer);
 }
 
 void Dijkstra::EventHandler(){
@@ -28,9 +29,19 @@ void Dijkstra::EventHandler(){
 			if(event.type == SDL_QUIT)
 				flag = false;	
 			if(event.type == SDL_MOUSEBUTTONDOWN){
-				printf("Program log: Button pressed\n");				
-				Node node(i, event.button.x, event.button.y, {255, 255, 255});
-				i++;
+				if(event.button.button == SDL_BUTTON_LEFT){
+					int mouseX, mouseY;
+					SDL_GetMouseState(&mouseX, &mouseY);
+					if(graph.isNodeClicked(mouseX, mouseY)){
+						printf("Program log:Node clicked\n");
+					}
+					else{
+						printf("Program log: Button pressed\n");				
+						Node node(i, event.button.x, event.button.y, {255, 255, 255});
+						graph.addNode(node);
+						i++;
+					}
+				}
 			}
 		}
 		SDL_RenderClear(renderer);

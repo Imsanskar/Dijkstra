@@ -18,6 +18,7 @@ private:
 	SDL_Window *window;	
 	SDL_Renderer *renderer;
 	SDL_Event event;
+	Graph graph;
 public:
 	Dijkstra(const int height, const int width);
 	void render();

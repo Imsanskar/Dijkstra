@@ -6,6 +6,7 @@
 #define DSA_PROJECT_NODE_H
 
 #include <SDL2/SDL_pixels.h>
+#include <SDL2/SDL_render.h>
 #include <string>
 #include "texture.h"
 
@@ -23,10 +24,12 @@ public:
 	Node(int _value, int x, int y, SDL_Color _color);
 
 	//is node pressed
-	bool isPressed();
+	bool isPressed(float x, float y) const;
 
 	//renderer
-	void render();
+	void render(SDL_Renderer *renderer) const;
+
+	bool operator <(const Node node) const;
 };
 
 

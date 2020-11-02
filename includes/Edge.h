@@ -5,7 +5,6 @@
 #ifndef DSA_PROJECT_EDGE_H
 #define DSA_PROJECT_EDGE_H
 #include "Node.h"
-#include "texture.h"
 
 class Edge{
 public:

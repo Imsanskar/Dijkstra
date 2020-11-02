@@ -19,6 +19,10 @@ public:
 	void addEdge(Edge edge);
 
 	void children(Node node);
+
+	void render(SDL_Renderer *renderer);
+
+	bool isNodeClicked(float x, float y);
 };
 
 
