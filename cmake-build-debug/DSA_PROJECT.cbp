@@ -44,6 +44,7 @@
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add directory="/home/sgr/CLionProjects/DSA_Projects/includes"/>
 					<Add directory="/usr/include/c++/9"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
 					<Add directory="/usr/include/c++/9/backward"/>
@@ -66,6 +67,7 @@
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add directory="/home/sgr/CLionProjects/DSA_Projects/includes"/>
 					<Add directory="/usr/include/c++/9"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
 					<Add directory="/usr/include/c++/9/backward"/>
@@ -82,7 +84,37 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/home/sgr/CLionProjects/DSA_Projects/includes/Djikstra.h">
+			<Option target="DSA_PROJECT"/>
+		</Unit>
+		<Unit filename="/home/sgr/CLionProjects/DSA_Projects/includes/Edge.h">
+			<Option target="DSA_PROJECT"/>
+		</Unit>
+		<Unit filename="/home/sgr/CLionProjects/DSA_Projects/includes/Graph.h">
+			<Option target="DSA_PROJECT"/>
+		</Unit>
+		<Unit filename="/home/sgr/CLionProjects/DSA_Projects/includes/Node.h">
+			<Option target="DSA_PROJECT"/>
+		</Unit>
+		<Unit filename="/home/sgr/CLionProjects/DSA_Projects/includes/texture.h">
+			<Option target="DSA_PROJECT"/>
+		</Unit>
 		<Unit filename="/home/sgr/CLionProjects/DSA_Projects/main.cpp">
+			<Option target="DSA_PROJECT"/>
+		</Unit>
+		<Unit filename="/home/sgr/CLionProjects/DSA_Projects/source/Djikstra.cpp">
+			<Option target="DSA_PROJECT"/>
+		</Unit>
+		<Unit filename="/home/sgr/CLionProjects/DSA_Projects/source/Edge.cpp">
+			<Option target="DSA_PROJECT"/>
+		</Unit>
+		<Unit filename="/home/sgr/CLionProjects/DSA_Projects/source/Graph.cpp">
+			<Option target="DSA_PROJECT"/>
+		</Unit>
+		<Unit filename="/home/sgr/CLionProjects/DSA_Projects/source/Node.cpp">
+			<Option target="DSA_PROJECT"/>
+		</Unit>
+		<Unit filename="/home/sgr/CLionProjects/DSA_Projects/source/texture.cpp">
 			<Option target="DSA_PROJECT"/>
 		</Unit>
 		<Unit filename="/home/sgr/CLionProjects/DSA_Projects/CMakeLists.txt">

@@ -22,7 +22,8 @@ private:
 public:
 	Dijkstra(const int height, const int width);
 	void render();
-	void EventHandler();	
+	void EventHandler();
+	void DrawCircle(SDL_Renderer* renderer1,int center_x,int center_y,int radius);
 };
 
 #endif //DSA_PROJECT_DJIKSTRA_H
