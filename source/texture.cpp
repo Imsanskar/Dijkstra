@@ -70,4 +70,5 @@ int Texture::getHeight(){
 }
 
 Texture::~Texture(){
+    SDL_DestroyTexture(texture);
 }

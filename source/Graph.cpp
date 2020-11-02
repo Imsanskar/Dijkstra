@@ -10,7 +10,7 @@
 
 void Graph::addNode(Node node){
 	edges[node] = {};
-	std::string path= "./Media/Fonts/font2.ttf";
+	std::string path= "./Media/Fonts/font.ttf";
 	font = TTF_OpenFont(path.c_str(), 30);
 	if(font == NULL){
 		std::cout<<TTF_GetError()<<"\n";
