@@ -9,10 +9,15 @@
 class Edge{
 public:
 	Node dest,source;
+	int weight;
 public:
 	//Normal constructor
 	Edge();
-	void render(SDL_Renderer *renderer);
+
+	//get the co ordinate distance between the nodes
+	int getDistance() const;
+
+	void render(SDL_Renderer *renderer, TTF_Font *font) const;
 };
 
 

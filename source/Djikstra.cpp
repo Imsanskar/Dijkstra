@@ -17,7 +17,7 @@
 Dijkstra::Dijkstra(const int height, const int width){
 	window = SDL_CreateWindow("Dijkstra", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, width, height, SDL_WINDOW_SHOWN);
 	renderer = SDL_CreateRenderer(window, -1, 0);
-	TTF_Init();
+//	TTF_Init();
 }
 
 void Dijkstra::render(){
@@ -28,6 +28,7 @@ void Dijkstra::EventHandler(){
     bool isNodeClicked = false;
     Node source, destination;
 	bool flag = true;
+    int mouseX, mouseY;
 	int i = 0;
     SDL_RenderClear(renderer);
 	while(flag){
@@ -46,9 +47,8 @@ void Dijkstra::EventHandler(){
 			}
 			if(event.type == SDL_MOUSEBUTTONDOWN){
 				if(event.button.button == SDL_BUTTON_LEFT){
-					int mouseX, mouseY;
 					SDL_GetMouseState(&mouseX, &mouseY);
-
+                    printf("%d %d\n", mouseX, mouseY);
 					if(graph.isNodeClicked(mouseX, mouseY)){
 						printf("Program log:Node clicked\n");
 						if(isNodeClicked){

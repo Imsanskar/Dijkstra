@@ -16,11 +16,13 @@ public:
 	std::map<Node,std::vector<Node>> edges;
 	TTF_Font *font;
 public:
+    Graph();
+
 	void addNode(Node node);
 	
 	void addEdge(Edge edge);
 
-	void children(Node node);
+	std::vector<Node> children(Node node);
 
 	void render(SDL_Renderer *renderer);
 

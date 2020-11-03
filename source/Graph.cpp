@@ -8,13 +8,19 @@
 #include <cstddef>
 #include <iostream>
 
+Graph::Graph() {
+    TTF_Init();
+    std::string path= "./Media/Fonts/font.ttf";
+    font = TTF_OpenFont(path.c_str(), 30);
+    if(font == nullptr){
+        std::cout<<TTF_GetError()<<"\n";
+    }
+}
+
+
 void Graph::addNode(Node node){
 	edges[node] = {};
-	std::string path= "./Media/Fonts/font.ttf";
-	font = TTF_OpenFont(path.c_str(), 30);
-	if(font == nullptr){
-		std::cout<<TTF_GetError()<<"\n";
-	}
+
 }
 
 void Graph::addEdge(Edge edge){
@@ -37,7 +43,7 @@ void Graph::render(SDL_Renderer *renderer){
             Edge edge;
             edge.source = node.first;
             edge.dest = n;
-            edge.render(renderer);
+            edge.render(renderer, font);
         }
     }
 
@@ -49,3 +55,10 @@ Node Graph::getClickedNode(int x, int y) {
             return node.first;
     }
 }
+
+//To be implemented
+std::vector<Node> Graph::children(Node node) {
+    return edges[node];
+}
+
+
