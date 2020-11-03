@@ -4,12 +4,14 @@
 
 #include "../includes/Djikstra.h"
 #include <SDL2/SDL_events.h>
+#include <SDL2/SDL_keyboard.h>
+#include <SDL2/SDL_keycode.h>
 #include <SDL2/SDL_mouse.h>
 #include <SDL2/SDL_rect.h>
 #include <SDL2/SDL_render.h>
 #include <SDL2/SDL_video.h>
 #include <cstdio>
-
+#include <iostream>
 
 Dijkstra::Dijkstra(const int height, const int width){
 	window = SDL_CreateWindow("Dijkstra", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, width, height, SDL_WINDOW_SHOWN);
@@ -32,6 +34,15 @@ void Dijkstra::EventHandler(){
 		while(SDL_PollEvent(&event) != 0){
 			if(event.type == SDL_QUIT)
 				flag = false;	
+			if(event.type == SDL_KEYUP){
+				switch(event.key.keysym.sym){
+					//escape functionality for cancelling the creation of edge
+					case SDLK_ESCAPE:
+						printf("Program log:Edge creation cancelled\n");
+						isNodeClicked = false;
+						break;
+				}
+			}
 			if(event.type == SDL_MOUSEBUTTONDOWN){
 				if(event.button.button == SDL_BUTTON_LEFT){
 					int mouseX, mouseY;
