@@ -10,6 +10,7 @@
 #include <iostream>
 #include <string>
 
+
 Node::Node(int _value, int x, int y, SDL_Color _color){
 	value = _value;
 	xPos = x;
@@ -69,4 +70,8 @@ bool Node::isPressed(int x, int y) const{
 
 bool Node::operator<(const Node node) const{
 	return node.value < this->value;
+}
+
+bool Node::operator ==(const Node &node) const {
+    return this->xPos == node.xPos && this->yPos == node.yPos && this->value == node.value;
 }

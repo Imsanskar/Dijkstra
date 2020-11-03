@@ -56,7 +56,10 @@ void Dijkstra::EventHandler(){
 						    Edge edge;
 						    edge.source = source;
 						    edge.dest = destination;
-						    graph.addEdge(edge);
+						    if(source == destination)
+						        printf("Duplicate node\n");
+						    else
+						        graph.addEdge(edge);
 						}
 						else{
 						    source = graph.getClickedNode(mouseX, mouseY);

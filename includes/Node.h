@@ -31,6 +31,8 @@ public:
 	void render(SDL_Renderer *renderer, TTF_Font *font) const;
 
 	bool operator <(const Node node) const;
+
+	bool operator ==(const Node &node) const;
 };
 
 
