@@ -25,6 +25,7 @@ void Edge::render(SDL_Renderer *renderer, TTF_Font *font) const {
     SDL_SetRenderDrawColor(renderer, 0, 0, 0, SDL_ALPHA_OPAQUE);
 //    texture.loadFromText(renderer, std::to_string(int(dist/60)), color, font);
 //    texture.render(renderer , midX + 20, midY);
+    SDL_RenderSetLogicalSize(renderer, 320, 300);
     SDL_RenderDrawLine(renderer, source.xPos, source.yPos, dest.xPos, dest.yPos);
     SDL_RenderDrawLine(renderer, int(midX), int(midY), midX+(vecX*cos(pi/4)-vecY*sin(pi/4)), midY+(vecX*sin(pi/4)+vecY*cos(pi/4)));
     SDL_RenderDrawLine(renderer, int(midX), int(midY), midX+(vecX*cos(-pi/4)-vecY*sin(-pi/4)), midY+(vecX*sin(-pi/4)+vecY*cos(-pi/4)));
