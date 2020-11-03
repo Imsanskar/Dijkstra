@@ -143,33 +143,6 @@ DSA_PROJECT/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/DSA_PROJECT.dir/build.make CMakeFiles/DSA_PROJECT.dir/build
 .PHONY : DSA_PROJECT/fast
 
-button.o: button.cpp.o
-
-.PHONY : button.o
-
-# target to build an object file
-button.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DSA_PROJECT.dir/build.make CMakeFiles/DSA_PROJECT.dir/button.cpp.o
-.PHONY : button.cpp.o
-
-button.i: button.cpp.i
-
-.PHONY : button.i
-
-# target to preprocess a source file
-button.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DSA_PROJECT.dir/build.make CMakeFiles/DSA_PROJECT.dir/button.cpp.i
-.PHONY : button.cpp.i
-
-button.s: button.cpp.s
-
-.PHONY : button.s
-
-# target to generate assembly for a file
-button.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DSA_PROJECT.dir/build.make CMakeFiles/DSA_PROJECT.dir/button.cpp.s
-.PHONY : button.cpp.s
-
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -305,6 +278,33 @@ source/Node.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/DSA_PROJECT.dir/build.make CMakeFiles/DSA_PROJECT.dir/source/Node.cpp.s
 .PHONY : source/Node.cpp.s
 
+source/button.o: source/button.cpp.o
+
+.PHONY : source/button.o
+
+# target to build an object file
+source/button.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DSA_PROJECT.dir/build.make CMakeFiles/DSA_PROJECT.dir/source/button.cpp.o
+.PHONY : source/button.cpp.o
+
+source/button.i: source/button.cpp.i
+
+.PHONY : source/button.i
+
+# target to preprocess a source file
+source/button.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DSA_PROJECT.dir/build.make CMakeFiles/DSA_PROJECT.dir/source/button.cpp.i
+.PHONY : source/button.cpp.i
+
+source/button.s: source/button.cpp.s
+
+.PHONY : source/button.s
+
+# target to generate assembly for a file
+source/button.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DSA_PROJECT.dir/build.make CMakeFiles/DSA_PROJECT.dir/source/button.cpp.s
+.PHONY : source/button.cpp.s
+
 source/texture.o: source/texture.cpp.o
 
 .PHONY : source/texture.o
@@ -341,9 +341,6 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... DSA_PROJECT"
-	@echo "... button.o"
-	@echo "... button.i"
-	@echo "... button.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
@@ -359,6 +356,9 @@ help:
 	@echo "... source/Node.o"
 	@echo "... source/Node.i"
 	@echo "... source/Node.s"
+	@echo "... source/button.o"
+	@echo "... source/button.i"
+	@echo "... source/button.s"
 	@echo "... source/texture.o"
 	@echo "... source/texture.i"
 	@echo "... source/texture.s"

@@ -155,18 +155,18 @@ CMakeFiles/DSA_PROJECT.dir/source/Edge.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/DSA_PROJECT.dir/source/Edge.cpp.s"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sgr/CLionProjects/DSA_Projects/source/Edge.cpp -o CMakeFiles/DSA_PROJECT.dir/source/Edge.cpp.s
 
-CMakeFiles/DSA_PROJECT.dir/button.cpp.o: CMakeFiles/DSA_PROJECT.dir/flags.make
-CMakeFiles/DSA_PROJECT.dir/button.cpp.o: ../button.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sgr/CLionProjects/DSA_Projects/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/DSA_PROJECT.dir/button.cpp.o"
-	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/DSA_PROJECT.dir/button.cpp.o -c /home/sgr/CLionProjects/DSA_Projects/button.cpp
+CMakeFiles/DSA_PROJECT.dir/source/button.cpp.o: CMakeFiles/DSA_PROJECT.dir/flags.make
+CMakeFiles/DSA_PROJECT.dir/source/button.cpp.o: ../source/button.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sgr/CLionProjects/DSA_Projects/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/DSA_PROJECT.dir/source/button.cpp.o"
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/DSA_PROJECT.dir/source/button.cpp.o -c /home/sgr/CLionProjects/DSA_Projects/source/button.cpp
 
-CMakeFiles/DSA_PROJECT.dir/button.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/DSA_PROJECT.dir/button.cpp.i"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sgr/CLionProjects/DSA_Projects/button.cpp > CMakeFiles/DSA_PROJECT.dir/button.cpp.i
+CMakeFiles/DSA_PROJECT.dir/source/button.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/DSA_PROJECT.dir/source/button.cpp.i"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sgr/CLionProjects/DSA_Projects/source/button.cpp > CMakeFiles/DSA_PROJECT.dir/source/button.cpp.i
 
-CMakeFiles/DSA_PROJECT.dir/button.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/DSA_PROJECT.dir/button.cpp.s"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sgr/CLionProjects/DSA_Projects/button.cpp -o CMakeFiles/DSA_PROJECT.dir/button.cpp.s
+CMakeFiles/DSA_PROJECT.dir/source/button.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/DSA_PROJECT.dir/source/button.cpp.s"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sgr/CLionProjects/DSA_Projects/source/button.cpp -o CMakeFiles/DSA_PROJECT.dir/source/button.cpp.s
 
 # Object files for target DSA_PROJECT
 DSA_PROJECT_OBJECTS = \
@@ -176,7 +176,7 @@ DSA_PROJECT_OBJECTS = \
 "CMakeFiles/DSA_PROJECT.dir/source/Node.cpp.o" \
 "CMakeFiles/DSA_PROJECT.dir/source/Graph.cpp.o" \
 "CMakeFiles/DSA_PROJECT.dir/source/Edge.cpp.o" \
-"CMakeFiles/DSA_PROJECT.dir/button.cpp.o"
+"CMakeFiles/DSA_PROJECT.dir/source/button.cpp.o"
 
 # External object files for target DSA_PROJECT
 DSA_PROJECT_EXTERNAL_OBJECTS =
@@ -187,7 +187,7 @@ DSA_PROJECT: CMakeFiles/DSA_PROJECT.dir/source/Djikstra.cpp.o
 DSA_PROJECT: CMakeFiles/DSA_PROJECT.dir/source/Node.cpp.o
 DSA_PROJECT: CMakeFiles/DSA_PROJECT.dir/source/Graph.cpp.o
 DSA_PROJECT: CMakeFiles/DSA_PROJECT.dir/source/Edge.cpp.o
-DSA_PROJECT: CMakeFiles/DSA_PROJECT.dir/button.cpp.o
+DSA_PROJECT: CMakeFiles/DSA_PROJECT.dir/source/button.cpp.o
 DSA_PROJECT: CMakeFiles/DSA_PROJECT.dir/build.make
 DSA_PROJECT: CMakeFiles/DSA_PROJECT.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/sgr/CLionProjects/DSA_Projects/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable DSA_PROJECT"
