@@ -52,9 +52,8 @@ void Dijkstra::EventHandler(){
 						    isNodeClicked = true;
 						}
 					}
-					else{
+					else if(!isNodeClicked){
 						printf("Program log: Button pressed\n");
-//                        DrawCircle(renderer,mouseX,mouseY,20);
                         SDL_RenderPresent(renderer);
 						Node node(i, event.button.x, event.button.y, {255, 255, 255});
 						graph.addNode(node);
