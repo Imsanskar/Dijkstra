@@ -13,6 +13,7 @@
 #include <cstdio>
 #include <iostream>
 
+
 Dijkstra::Dijkstra(const int height, const int width){
 	window = SDL_CreateWindow("Dijkstra", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, width, height, SDL_WINDOW_SHOWN);
 	renderer = SDL_CreateRenderer(window, -1, 0);
@@ -52,14 +53,16 @@ void Dijkstra::EventHandler(){
 						printf("Program log:Node clicked\n");
 						if(isNodeClicked){
 						    destination = graph.getClickedNode(mouseX, mouseY);
-						    isNodeClicked = false;
 						    Edge edge;
 						    edge.source = source;
 						    edge.dest = destination;
-						    if(source == destination)
-						        printf("Duplicate node\n");
-						    else
-						        graph.addEdge(edge);
+						    if(source == destination) {
+                                printf("Duplicate node\n");
+                            }
+						    else {
+                                isNodeClicked = false;
+                                graph.addEdge(edge);
+                            }
 						}
 						else{
 						    source = graph.getClickedNode(mouseX, mouseY);
@@ -77,13 +80,15 @@ void Dijkstra::EventHandler(){
 			}
 		}
         SDL_RenderClear(renderer);
+        if(isNodeClicked)
+            DrawCircle(source.xPos, source.yPos, 45);
 		render();
 		SDL_RenderPresent(renderer);
 	}
 }
 
-void Dijkstra::DrawCircle(SDL_Renderer* renderer1,int center_x,int center_y,int radius)
-{
+void Dijkstra::DrawCircle(int center_x, int center_y, int radius) {
+    SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
     const int diameter=2*radius;
     int x= radius-1;
     int y=0;
@@ -91,14 +96,14 @@ void Dijkstra::DrawCircle(SDL_Renderer* renderer1,int center_x,int center_y,int 
     int ty=1;
     int P=tx-diameter;
     while(x>=y) {
-        SDL_RenderDrawPoint(renderer1, center_x + x, center_y + y);
-        SDL_RenderDrawPoint(renderer1, center_x + x, center_y - y);
-        SDL_RenderDrawPoint(renderer1, center_x - x, center_y + y);
-        SDL_RenderDrawPoint(renderer1, center_x - x, center_y - y);
-        SDL_RenderDrawPoint(renderer1, center_x + y, center_y + x);
-        SDL_RenderDrawPoint(renderer1, center_x + y, center_y - x);
-        SDL_RenderDrawPoint(renderer1, center_x - y, center_y + x);
-        SDL_RenderDrawPoint(renderer1, center_x - y, center_y + -x);
+        SDL_RenderDrawPoint(renderer, center_x + x, center_y + y);
+        SDL_RenderDrawPoint(renderer, center_x + x, center_y - y);
+        SDL_RenderDrawPoint(renderer, center_x - x, center_y + y);
+        SDL_RenderDrawPoint(renderer, center_x - x, center_y - y);
+        SDL_RenderDrawPoint(renderer, center_x + y, center_y + x);
+        SDL_RenderDrawPoint(renderer, center_x + y, center_y - x);
+        SDL_RenderDrawPoint(renderer, center_x - y, center_y + x);
+        SDL_RenderDrawPoint(renderer, center_x - y, center_y + -x);
 
         if (P <= 0) {
             ++y;

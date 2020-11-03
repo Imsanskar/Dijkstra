@@ -12,7 +12,6 @@
 #include <SDL2/SDL_render.h>
 #include <SDL2/SDL_video.h>
 
-
 class Dijkstra{
 private:
 	SDL_Window *window;	
@@ -23,7 +22,7 @@ public:
 	Dijkstra(const int height, const int width);
 	void render();
 	void EventHandler();
-	void DrawCircle(SDL_Renderer* renderer1,int center_x,int center_y,int radius);
+	void DrawCircle(int center_x,int center_y,int radius);
 };
 
 #endif //DSA_PROJECT_DJIKSTRA_H
