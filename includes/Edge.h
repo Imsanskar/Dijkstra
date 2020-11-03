@@ -12,7 +12,7 @@ public:
 public:
 	//Normal constructor
 	Edge();
-	void render();
+	void render(SDL_Renderer *renderer);
 };
 
 

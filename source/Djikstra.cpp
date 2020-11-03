@@ -22,11 +22,13 @@ void Dijkstra::render(){
 }
 
 void Dijkstra::EventHandler(){
+    bool isNodeClicked = false;
+    Node source, destination;
 	bool flag = true;
 	int i = 0;
     SDL_RenderClear(renderer);
 	while(flag){
-        SDL_SetRenderDrawColor(renderer, 0, 255, 0, 255);
+        SDL_SetRenderDrawColor(renderer, 76, 188, 187, 255);
 		while(SDL_PollEvent(&event) != 0){
 			if(event.type == SDL_QUIT)
 				flag = false;	
@@ -37,6 +39,18 @@ void Dijkstra::EventHandler(){
 
 					if(graph.isNodeClicked(mouseX, mouseY)){
 						printf("Program log:Node clicked\n");
+						if(isNodeClicked){
+						    destination = graph.getClickedNode(mouseX, mouseY);
+						    isNodeClicked = false;
+						    Edge edge;
+						    edge.source = source;
+						    edge.dest = destination;
+						    graph.addEdge(edge);
+						}
+						else{
+						    source = graph.getClickedNode(mouseX, mouseY);
+						    isNodeClicked = true;
+						}
 					}
 					else{
 						printf("Program log: Button pressed\n");

@@ -4,12 +4,11 @@
 
 #include "../includes/Edge.h"
 
-Edge::Edge(){
-
-}
+Edge::Edge()= default;
 
 
 //render method for edge
-void Edge::render(){
-	
+void Edge::render(SDL_Renderer *renderer) {
+    SDL_SetRenderDrawColor(renderer, 0, 0, 0, SDL_ALPHA_OPAQUE);
+    SDL_RenderDrawLine(renderer, source.xPos, source.yPos, dest.xPos, dest.yPos);
 }

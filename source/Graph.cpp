@@ -12,13 +12,14 @@ void Graph::addNode(Node node){
 	edges[node] = {};
 	std::string path= "./Media/Fonts/font.ttf";
 	font = TTF_OpenFont(path.c_str(), 30);
-	if(font == NULL){
+	if(font == nullptr){
 		std::cout<<TTF_GetError()<<"\n";
 	}
 }
 
 void Graph::addEdge(Edge edge){
-	
+    printf("Edge created. Source Value:%d x-coord:%d y-coord:%d\n", edge.source.value, edge.source.xPos, edge.source.yPos);
+    edges[edge.source].push_back(edge.dest);
 }
 
 bool Graph::isNodeClicked(int x, int y){
@@ -30,6 +31,21 @@ bool Graph::isNodeClicked(int x, int y){
 }
 
 void Graph::render(SDL_Renderer *renderer){
-	for(auto &node: edges)
-		node.first.render(renderer, font);
+	for(auto &node: edges) {
+        node.first.render(renderer, font);
+        for(auto &n:edges[node.first]){
+            Edge edge;
+            edge.source = node.first;
+            edge.dest = n;
+            edge.render(renderer);
+        }
+    }
+
+}
+
+Node Graph::getClickedNode(int x, int y) {
+    for(auto &node: edges){
+        if(node.first.isPressed(x,y))
+            return node.first;
+    }
 }

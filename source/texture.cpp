@@ -10,8 +10,8 @@
 #include <cstdio>
 #include<iostream>
 
-Texture::Texture(std::string fontPath){
-	texture = NULL;
+Texture::Texture(const std::string& fontPath){
+	texture = nullptr;
 	width = 0;
 	height = 0;
 }
@@ -39,7 +39,7 @@ bool Texture::loadFromText(SDL_Renderer *renderer, std::string text, SDL_Color c
 		SDL_FreeSurface(surface);
 	}
 
-	return texture != NULL;
+	return texture != nullptr;
 }
 
 void Texture::setColor(Uint8 r, Uint8 g, Uint8 b, Uint8 alpha){
@@ -52,7 +52,7 @@ void Texture::setColor(Uint8 r, Uint8 g, Uint8 b, Uint8 alpha){
 
 void Texture::render(SDL_Renderer *renderer,int x, int y, SDL_Rect* clip, double angle, SDL_Point* center, SDL_RendererFlip flip){	
 	SDL_Rect renderRect = {x, y, width, height};
-	if(clip != NULL){
+	if(clip != nullptr){
 		renderRect.w = clip->w;
 		renderRect.h = clip->h;
 	}
@@ -61,11 +61,11 @@ void Texture::render(SDL_Renderer *renderer,int x, int y, SDL_Rect* clip, double
 	SDL_RenderCopyEx(renderer, texture, clip, &renderRect, angle, center, flip);
 }
 
-int Texture::getWidth(){
+int Texture::getWidth() const{
 	return width;
 }
 
-int Texture::getHeight(){
+int Texture::getHeight() const{
 	return height;
 }
 
