@@ -27,6 +27,9 @@ public:
 	//is node pressed
 	bool isPressed(int x, int y) const;
 
+	//is node possible
+    bool isPossible(int x,int y) const;
+
 	//renderer
 	void render(SDL_Renderer *renderer, TTF_Font *font) const;
 
