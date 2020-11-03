@@ -143,6 +143,33 @@ DSA_PROJECT/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/DSA_PROJECT.dir/build.make CMakeFiles/DSA_PROJECT.dir/build
 .PHONY : DSA_PROJECT/fast
 
+button.o: button.cpp.o
+
+.PHONY : button.o
+
+# target to build an object file
+button.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DSA_PROJECT.dir/build.make CMakeFiles/DSA_PROJECT.dir/button.cpp.o
+.PHONY : button.cpp.o
+
+button.i: button.cpp.i
+
+.PHONY : button.i
+
+# target to preprocess a source file
+button.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DSA_PROJECT.dir/build.make CMakeFiles/DSA_PROJECT.dir/button.cpp.i
+.PHONY : button.cpp.i
+
+button.s: button.cpp.s
+
+.PHONY : button.s
+
+# target to generate assembly for a file
+button.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DSA_PROJECT.dir/build.make CMakeFiles/DSA_PROJECT.dir/button.cpp.s
+.PHONY : button.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -314,6 +341,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... DSA_PROJECT"
+	@echo "... button.o"
+	@echo "... button.i"
+	@echo "... button.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

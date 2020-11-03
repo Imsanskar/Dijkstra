@@ -20,7 +20,11 @@ Graph::Graph() {
 
 void Graph::addNode(Node node){
 	edges[node] = {};
-
+//	std::string path= "../Media/Fonts/font.ttf";
+//	font = TTF_OpenFont(path.c_str(), 30);
+//	if(font == nullptr){
+//		std::cout<<TTF_GetError()<<"\n";
+//	}
 }
 
 void Graph::addEdge(Edge edge){
@@ -35,6 +39,14 @@ bool Graph::isNodeClicked(int x, int y){
 	}
 	return false;
 }
+bool Graph::isPossible(int x, int y) {
+    for(auto &node: edges){
+        if(node.first.isPossible(x,y))
+            return true;
+    }
+    return false;
+}
+
 
 void Graph::render(SDL_Renderer *renderer){
 	for(auto &node: edges) {

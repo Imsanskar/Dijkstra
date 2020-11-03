@@ -33,14 +33,14 @@ void Node::render(SDL_Renderer *renderer, TTF_Font *font) const{
     int ty=1;
     int P=tx-diameter;
     while(x>=y) {
-        SDL_RenderDrawPoint(renderer, center_x + x, center_y + y);
-        SDL_RenderDrawPoint(renderer, center_x + x, center_y - y);
-        SDL_RenderDrawPoint(renderer, center_x - x, center_y + y);
-        SDL_RenderDrawPoint(renderer, center_x - x, center_y - y);
-        SDL_RenderDrawPoint(renderer, center_x + y, center_y + x);
-        SDL_RenderDrawPoint(renderer, center_x + y, center_y - x);
-        SDL_RenderDrawPoint(renderer, center_x - y, center_y + x);
-        SDL_RenderDrawPoint(renderer, center_x - y, center_y + -x);
+        SDL_RenderDrawLine(renderer, center_x + x, center_y + y,center_x + x , center_y);
+        SDL_RenderDrawLine(renderer, center_x + x, center_y - y,center_x + x , center_y);
+        SDL_RenderDrawLine(renderer, center_x - x, center_y + y,center_x - x , center_y);
+        SDL_RenderDrawLine(renderer, center_x - x, center_y - y,center_x - x , center_y);
+        SDL_RenderDrawLine(renderer, center_x + y, center_y + x,center_x + y , center_y);
+        SDL_RenderDrawLine(renderer, center_x + y, center_y - x,center_x + y , center_y);
+        SDL_RenderDrawLine(renderer, center_x - y, center_y + x,center_x - y , center_y);
+        SDL_RenderDrawLine(renderer, center_x - y, center_y - x,center_x - y, center_y);
 
         if (P <= 0) {
             ++y;
@@ -54,7 +54,7 @@ void Node::render(SDL_Renderer *renderer, TTF_Font *font) const{
         }
     }
 	std::string text = std::to_string(value);
-	std::string path = "./Media/Fonts/font.ttf";
+	std::string path = "../Media/Fonts/font.ttf";
 	Texture texture(path);
 	texture.loadFromText(renderer, text, color, font);
 	texture.render(renderer, xPos - 10, yPos - 15);
@@ -66,6 +66,13 @@ bool Node::isPressed(int x, int y) const{
 	if(dist < 1600)
 		return true;
 	return false;
+}
+bool Node::isPossible(int x, int y) const {
+    const int dist = (x - xPos) * (x - xPos) + (y - yPos) * (y - yPos);
+    if(dist < 6400)
+        return true;
+    return false;
+
 }
 
 bool Node::operator<(const Node node) const{

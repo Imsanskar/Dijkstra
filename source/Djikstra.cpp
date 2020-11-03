@@ -26,6 +26,7 @@ void Dijkstra::render(){
 
 void Dijkstra::EventHandler(){
     bool isNodeClicked = false;
+    //bool isPossible = false ;
     Node source, destination;
 	bool flag = true;
     int mouseX, mouseY;
@@ -70,11 +71,17 @@ void Dijkstra::EventHandler(){
 						}
 					}
 					else if(!isNodeClicked){
-						printf("Program log: Button pressed\n");
-                        SDL_RenderPresent(renderer);
-						Node node(i, event.button.x, event.button.y, {255, 255, 255});
-						graph.addNode(node);
-						i++;
+                        if(graph.isPossible(mouseX, mouseY))
+                        {
+					        printf("Node too near\n");
+                        }
+					    else {
+                            printf("Program log: Button pressed\n");
+                            SDL_RenderPresent(renderer);
+                            Node node(i, event.button.x, event.button.y, {255, 255, 255});
+                            graph.addNode(node);
+                            i++;
+                        }
 					}
 				}
 			}

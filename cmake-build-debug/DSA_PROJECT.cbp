@@ -84,6 +84,12 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/home/sgr/CLionProjects/DSA_Projects/button.cpp">
+			<Option target="DSA_PROJECT"/>
+		</Unit>
+		<Unit filename="/home/sgr/CLionProjects/DSA_Projects/button.h">
+			<Option target="DSA_PROJECT"/>
+		</Unit>
 		<Unit filename="/home/sgr/CLionProjects/DSA_Projects/includes/Djikstra.h">
 			<Option target="DSA_PROJECT"/>
 		</Unit>

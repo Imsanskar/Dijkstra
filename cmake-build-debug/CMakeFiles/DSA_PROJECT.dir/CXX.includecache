@@ -29,6 +29,8 @@ Node.h
 /home/sgr/CLionProjects/DSA_Projects/includes/Node.h
 Edge.h
 /home/sgr/CLionProjects/DSA_Projects/includes/Edge.h
+SDL2/SDL_ttf.h
+-
 map
 -
 vector
@@ -38,6 +40,8 @@ vector
 SDL2/SDL_pixels.h
 -
 SDL2/SDL_render.h
+-
+SDL2/SDL_ttf.h
 -
 string
 -
@@ -63,6 +67,10 @@ string
 /home/sgr/CLionProjects/DSA_Projects/includes/Djikstra.h
 SDL2/SDL_events.h
 -
+SDL2/SDL_keyboard.h
+-
+SDL2/SDL_keycode.h
+-
 SDL2/SDL_mouse.h
 -
 SDL2/SDL_rect.h
@@ -72,5 +80,7 @@ SDL2/SDL_render.h
 SDL2/SDL_video.h
 -
 cstdio
+-
+iostream
 -
 
