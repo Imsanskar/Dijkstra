@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../includes/button.h
+SDL/SDL.h
+../includes/SDL/SDL.h
+
+/home/sgr/CLionProjects/DSA_Projects/source/button.cpp
+button.h
+/home/sgr/CLionProjects/DSA_Projects/source/button.h
+
