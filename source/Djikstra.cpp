@@ -17,35 +17,58 @@
 Dijkstra::Dijkstra(const int height, const int width){
 	window = SDL_CreateWindow("Dijkstra", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, width, height, SDL_WINDOW_SHOWN);
 	renderer = SDL_CreateRenderer(window, -1, 0);
+    std::string path= "./Media/Fonts/font2.ttf";
+    weightText = "";
+	font = TTF_OpenFont(path.c_str(), 20);
+	rectangle = {950, 660, 50, 30};
+	isNodeClicked = false;
+	mouseX = mouseY = 0;
 //	TTF_Init();
 }
 
 void Dijkstra::render(){
-	graph.render(renderer);
+    graph.render(renderer);
+    std::string path= "./Media/Fonts/font2.ttf";
+    Texture weightTextTexture(path);
+    if(isNodeClicked) {
+        SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+        SDL_RenderFillRect(renderer, &rectangle);
+        DrawCircle(source.xPos, source.yPos, 45);
+        SDL_Color color = {255, 255, 255};
+        if(!weightText.empty()) {
+            weightTextTexture.loadFromText(renderer, weightText, color, font);
+            weightTextTexture.render(renderer, 950, 660);
+        }
+    }
 }
 
 void Dijkstra::EventHandler(){
-    bool isNodeClicked = false;
+//    bool isNodeClicked = false;
     //bool isPossible = false ;
-    Node source, destination;
 	bool flag = true;
-    int mouseX, mouseY;
 	int i = 0;
     SDL_RenderClear(renderer);
+    SDL_StartTextInput();
 	while(flag){
         SDL_SetRenderDrawColor(renderer, 76, 188, 187, 255);
 		while(SDL_PollEvent(&event) != 0){
 			if(event.type == SDL_QUIT)
 				flag = false;	
-			if(event.type == SDL_KEYUP){
-				switch(event.key.keysym.sym){
-					//escape functionality for cancelling the creation of edge
-					case SDLK_ESCAPE:
-						printf("Program log:Edge creation cancelled\n");
-						isNodeClicked = false;
-						break;
-				}
+			if(event.type == SDL_KEYDOWN){
+                //escape functionality for cancelling the creation of edge
+                if(event.key.keysym.sym == SDLK_ESCAPE) {
+                    printf("Program log:Edge creation cancelled\n");
+                    isNodeClicked = false;
+                    break;
+                }
+
+                //handle backspace
+                if(event.key.keysym.sym == SDLK_BACKSPACE && weightText.length() > 0){
+                    weightText.pop_back();
+                }
 			}
+			if(event.type == SDL_TEXTINPUT)
+                weightText += event.text.text;
 			if(event.type == SDL_MOUSEBUTTONDOWN){
 				if(event.button.button == SDL_BUTTON_LEFT){
 					SDL_GetMouseState(&mouseX, &mouseY);
@@ -57,10 +80,16 @@ void Dijkstra::EventHandler(){
 						    Edge edge;
 						    edge.source = source;
 						    edge.dest = destination;
+						    std::cout<<weightText<<"\n";
 						    if(source == destination) {
                                 printf("Duplicate node\n");
                             }
+						    else if(weightText.empty()){
+						        printf("Empty value\n");
+						    }
 						    else {
+                                edge.weight = std::stoi(weightText);
+						        weightText = "";
                                 isNodeClicked = false;
                                 graph.addEdge(edge);
                             }
@@ -71,8 +100,7 @@ void Dijkstra::EventHandler(){
 						}
 					}
 					else if(!isNodeClicked){
-                        if(graph.isPossible(mouseX, mouseY))
-                        {
+                        if(graph.isPossible(mouseX, mouseY)){
 					        printf("Node too near\n");
                         }
 					    else {
@@ -87,11 +115,10 @@ void Dijkstra::EventHandler(){
 			}
 		}
         SDL_RenderClear(renderer);
-        if(isNodeClicked)
-            DrawCircle(source.xPos, source.yPos, 45);
 		render();
 		SDL_RenderPresent(renderer);
 	}
+    SDL_StopTextInput();
 }
 
 void Dijkstra::DrawCircle(int center_x, int center_y, int radius) {

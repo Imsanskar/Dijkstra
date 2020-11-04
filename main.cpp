@@ -11,6 +11,7 @@
 
 int main(int argc, char *argv[])
 {
+    TTF_Init();
 	int w,h;
 	SDL_Init(SDL_INIT_EVERYTHING);
 	Dijkstra dijkstra(720, 1000);

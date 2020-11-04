@@ -9,7 +9,7 @@
 #include <iostream>
 
 Graph::Graph() {
-    TTF_Init();
+//    TTF_Init();
     std::string path= "./Media/Fonts/font.ttf";
     font = TTF_OpenFont(path.c_str(), 30);
     if(font == nullptr){
@@ -29,7 +29,7 @@ void Graph::addNode(Node node){
 
 void Graph::addEdge(Edge edge){
     printf("Edge created. Source Value:%d x-coord:%d y-coord:%d\n", edge.source.value, edge.source.xPos, edge.source.yPos);
-    edges[edge.source].push_back(edge.dest);
+    edges[edge.source].push_back(std::make_pair(edge.dest, edge.weight));
 }
 
 bool Graph::isNodeClicked(int x, int y){
@@ -54,7 +54,8 @@ void Graph::render(SDL_Renderer *renderer){
         for(auto &n:edges[node.first]){
             Edge edge;
             edge.source = node.first;
-            edge.dest = n;
+            edge.dest = n.first;
+            edge.weight = n.second;
             edge.render(renderer, font);
         }
     }
@@ -69,7 +70,7 @@ Node Graph::getClickedNode(int x, int y) {
 }
 
 //To be implemented
-std::vector<Node> Graph::children(Node node) {
+std::vector<std::pair<Node, int>> Graph::children(Node node) {
     return edges[node];
 }
 

@@ -13,7 +13,7 @@
 
 class Graph{
 public:
-	std::map<Node,std::vector<Node>> edges;
+	std::map<Node,std::vector<std::pair<Node,int>>> edges;
 	TTF_Font *font;
 public:
     Graph();
@@ -22,7 +22,7 @@ public:
 	
 	void addEdge(Edge edge);
 
-	std::vector<Node> children(Node node);
+	std::vector<std::pair<Node, int>> children(Node node);
 
 	void render(SDL_Renderer *renderer);
 

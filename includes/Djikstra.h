@@ -18,6 +18,12 @@ private:
 	SDL_Renderer *renderer;
 	SDL_Event event{};
 	Graph graph;
+	TTF_Font *font;
+	SDL_Rect rectangle;
+	bool isNodeClicked;
+    int mouseX, mouseY;
+    Node source, destination;
+    std::string weightText;
 public:
 	Dijkstra(const int height, const int width);
 	void render();
