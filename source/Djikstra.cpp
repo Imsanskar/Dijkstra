@@ -15,14 +15,14 @@
 
 
 Dijkstra::Dijkstra(const int height, const int width){
-	window = SDL_CreateWindow("Dijkstra", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, width, height, SDL_WINDOW_SHOWN);
-	renderer = SDL_CreateRenderer(window, -1, 0);
+    window = SDL_CreateWindow("Dijkstra", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, width, height, SDL_WINDOW_SHOWN);
+    renderer = SDL_CreateRenderer(window, -1, 0);
     std::string path= "./Media/Fonts/font2.ttf";
     weightText = "";
-	font = TTF_OpenFont(path.c_str(), 20);
-	rectangle = {950, 660, 50, 30};
-	isNodeClicked = false;
-	mouseX = mouseY = 0;
+    font = TTF_OpenFont(path.c_str(), 20);
+    rectangle = {950, 660, 50, 30};
+    isNodeClicked = false;
+    mouseX = mouseY = 0;
 //	TTF_Init();
 }
 
@@ -45,16 +45,16 @@ void Dijkstra::render(){
 void Dijkstra::EventHandler(){
 //    bool isNodeClicked = false;
     //bool isPossible = false ;
-	bool flag = true;
-	int i = 0;
+    bool flag = true;
+    int i = 0;
     SDL_RenderClear(renderer);
     SDL_StartTextInput();
-	while(flag){
+    while(flag){
         SDL_SetRenderDrawColor(renderer, 76, 188, 187, 255);
-		while(SDL_PollEvent(&event) != 0){
-			if(event.type == SDL_QUIT)
-				flag = false;	
-			if(event.type == SDL_KEYDOWN){
+        while(SDL_PollEvent(&event) != 0){
+            if(event.type == SDL_QUIT)
+                flag = false;
+            if(event.type == SDL_KEYDOWN){
                 //escape functionality for cancelling the creation of edge
                 if(event.key.keysym.sym == SDLK_ESCAPE) {
                     printf("Program log:Edge creation cancelled\n");
@@ -66,58 +66,58 @@ void Dijkstra::EventHandler(){
                 if(event.key.keysym.sym == SDLK_BACKSPACE && weightText.length() > 0){
                     weightText.pop_back();
                 }
-			}
-			if(event.type == SDL_TEXTINPUT)
+            }
+            if(event.type == SDL_TEXTINPUT)
                 weightText += event.text.text;
-			if(event.type == SDL_MOUSEBUTTONDOWN){
-				if(event.button.button == SDL_BUTTON_LEFT){
-					SDL_GetMouseState(&mouseX, &mouseY);
+            if(event.type == SDL_MOUSEBUTTONDOWN){
+                if(event.button.button == SDL_BUTTON_LEFT){
+                    SDL_GetMouseState(&mouseX, &mouseY);
                     printf("%d %d\n", mouseX, mouseY);
-					if(graph.isNodeClicked(mouseX, mouseY)){
-						printf("Program log:Node clicked\n");
-						if(isNodeClicked){
-						    destination = graph.getClickedNode(mouseX, mouseY);
-						    Edge edge;
-						    edge.source = source;
-						    edge.dest = destination;
-						    std::cout<<weightText<<"\n";
-						    if(source == destination) {
+                    if(graph.isNodeClicked(mouseX, mouseY)){
+                        printf("Program log:Node clicked\n");
+                        if(isNodeClicked){
+                            destination = graph.getClickedNode(mouseX, mouseY);
+                            Edge edge;
+                            edge.source = source;
+                            edge.dest = destination;
+                            std::cout<<weightText<<"\n";
+                            if(source == destination) {
                                 printf("Duplicate node\n");
                             }
-						    else if(weightText.empty()){
-						        printf("Empty value\n");
-						    }
-						    else {
+                            else if(weightText.empty()){
+                                printf("Empty value\n");
+                            }
+                            else {
                                 edge.weight = std::stoi(weightText);
-						        weightText = "";
+                                weightText = "";
                                 isNodeClicked = false;
                                 graph.addEdge(edge);
                             }
-						}
-						else{
-						    source = graph.getClickedNode(mouseX, mouseY);
-						    isNodeClicked = true;
-						}
-					}
-					else if(!isNodeClicked){
-                        if(graph.isPossible(mouseX, mouseY)){
-					        printf("Node too near\n");
                         }
-					    else {
+                        else{
+                            source = graph.getClickedNode(mouseX, mouseY);
+                            isNodeClicked = true;
+                        }
+                    }
+                    else if(!isNodeClicked){
+                        if(graph.isPossible(mouseX, mouseY)){
+                            printf("Node too near\n");
+                        }
+                        else {
                             printf("Program log: Button pressed\n");
                             SDL_RenderPresent(renderer);
                             Node node(i, event.button.x, event.button.y, {255, 255, 255});
                             graph.addNode(node);
                             i++;
                         }
-					}
-				}
-			}
-		}
+                    }
+                }
+            }
+        }
         SDL_RenderClear(renderer);
-		render();
-		SDL_RenderPresent(renderer);
-	}
+        render();
+        SDL_RenderPresent(renderer);
+    }
     SDL_StopTextInput();
 }
 

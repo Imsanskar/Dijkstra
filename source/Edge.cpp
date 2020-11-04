@@ -36,6 +36,6 @@ void Edge::render(SDL_Renderer *renderer, TTF_Font *font) const{
     SDL_RenderDrawLine(renderer, midX, midY, midX+(vecX*cos(-pi/4)-vecY*sin(-pi/4)), midY+(vecX*sin(-pi/4)+vecY*cos(-pi/4)));
 
     Texture texture;
-    texture.loadFromText(renderer, std::to_string(weight), {255, 255, 255}, font);
-    texture.render(renderer, midX+20, midY);
+    texture.loadFromText(renderer, std::to_string(weight), {76, 86, 106}, font);
+    texture.render(renderer, midX + 2 * vecX, midY + 2 * vecY);
 }
