@@ -18,8 +18,11 @@ public:
    	int yPos;
 	SDL_Color color;
 	int value;
+	int radius;
 public:
-	Node(){}
+	Node(){
+	    radius = 20;
+	}
 
 	//Constructor
 	Node(int _value, int x, int y, SDL_Color _color);
@@ -34,6 +37,8 @@ public:
 	void render(SDL_Renderer *renderer, TTF_Font *font) const;
 
 	bool operator <(const Node node) const;
+
+    bool operator >(const Node node) const;
 
 	bool operator ==(const Node &node) const;
 };

@@ -15,15 +15,14 @@ Node::Node(int _value, int x, int y, SDL_Color _color){
 	value = _value;
 	xPos = x;
 	yPos = y;
-	color = {100, 100, 20};
-	char c = 'A' + value;
+	color = {0, 0, 0};
+	radius  = 20;
 	printf("Node created. Value:%d x-coord:%d y-coord:%d\n", value, x, y);
 }
 
 
 void Node::render(SDL_Renderer *renderer, TTF_Font *font) const{
     SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
-    const int radius = 40;
     int center_x = xPos;
     int center_y = yPos;
     const int diameter=2*radius;
@@ -63,13 +62,13 @@ void Node::render(SDL_Renderer *renderer, TTF_Font *font) const{
 
 bool Node::isPressed(int x, int y) const{
 	const int dist = (x - xPos) * (x - xPos) + (y - yPos) * (y - yPos);
-	if(dist < 1600)
+	if(dist < (radius * radius))
 		return true;
 	return false;
 }
 bool Node::isPossible(int x, int y) const {
     const int dist = (x - xPos) * (x - xPos) + (y - yPos) * (y - yPos);
-    if(dist < 6400)
+    if(dist < 160 * radius)
         return true;
     return false;
 
@@ -81,4 +80,8 @@ bool Node::operator<(const Node node) const{
 
 bool Node::operator ==(const Node &node) const {
     return this->xPos == node.xPos && this->yPos == node.yPos && this->value == node.value;
+}
+
+bool Node::operator>(const Node node) const {
+    return node.value > this->value;
 }

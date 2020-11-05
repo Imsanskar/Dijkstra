@@ -12,17 +12,20 @@
 #include <SDL2/SDL_video.h>
 #include <cstdio>
 #include <iostream>
+#include <Button.h>
 
 
 Dijkstra::Dijkstra(const int height, const int width){
     window = SDL_CreateWindow("Dijkstra", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, width, height, SDL_WINDOW_SHOWN);
     renderer = SDL_CreateRenderer(window, -1, 0);
-    std::string path= "../Media/Fonts/font2.ttf";
+    std::string path= "./Media/Fonts/font2.ttf";
     weightText = "";
     font = TTF_OpenFont(path.c_str(), 20);
     rectangle = {950, 660, 50, 30};
     isNodeClicked = false;
     mouseX = mouseY = 0;
+    selectSource = false;
+    selectDestination = false;
 //	TTF_Init();
 }
 
@@ -33,7 +36,7 @@ void Dijkstra::render(){
     if(isNodeClicked) {
         SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
         SDL_RenderFillRect(renderer, &rectangle);
-        DrawCircle(source.xPos, source.yPos, 45);
+        DrawCircle(src.xPos, src.yPos, source.radius + 3);
         SDL_Color color = {255, 255, 255};
         if(!weightText.empty()) {
             weightTextTexture.loadFromText(renderer, weightText, color, font);
@@ -49,6 +52,9 @@ void Dijkstra::EventHandler(){
     int i = 0;
     SDL_RenderClear(renderer);
     SDL_StartTextInput();
+    Button startButton("Start", 800, 50, 200);
+    Button selectSourceButton("Select Source", 800, 100, 200);
+    Button selectDestinationButton("Select Destination", 800, 150, 200);
     while(flag){
         SDL_SetRenderDrawColor(renderer, 76, 188, 187, 255);
         while(SDL_PollEvent(&event) != 0){
@@ -70,18 +76,43 @@ void Dijkstra::EventHandler(){
             if(event.type == SDL_TEXTINPUT)
                 weightText += event.text.text;
             if(event.type == SDL_MOUSEBUTTONDOWN){
+                SDL_GetMouseState(&mouseX, &mouseY);
+                printf("Mouse movement %d %d", mouseX, mouseY);
                 if(event.button.button == SDL_BUTTON_LEFT){
-                    SDL_GetMouseState(&mouseX, &mouseY);
+//                    SDL_GetMouseState(&mouseX, &mouseY);
                     printf("%d %d\n", mouseX, mouseY);
-                    if(graph.isNodeClicked(mouseX, mouseY)){
+                    if(selectSourceButton.isClicked(mouseX, mouseY)) {
+                        selectSource = true;
+                    }
+                    else if(startButton.isClicked(mouseX, mouseY)){
+                        shortestPathFinder();
+                        startButton.outer(renderer);
+                    }
+                    else if(selectDestinationButton.isClicked(mouseX, mouseY)) {
+                        selectDestination = true;
+                    }
+                    else if(graph.isNodeClicked(mouseX, mouseY) && selectSource){
+                        source = graph.getClickedNode(mouseX, mouseY);
+                        printf("Selected node value: %d\n", source.value);
+                        selectSource = false;
+                    }
+                    else if(graph.isNodeClicked(mouseX, mouseY) && selectDestination){
+                        destination = graph.getClickedNode(mouseX, mouseY);
+                        printf("Selected node value: %d\n", destination.value);
+                        selectDestination = false;
+                    }
+                    else if(graph.isNodeClicked(mouseX, mouseY)){
                         printf("Program log:Node clicked\n");
                         if(isNodeClicked){
-                            destination = graph.getClickedNode(mouseX, mouseY);
+                            if(selectSource){
+                                source = graph.getClickedNode(mouseX, mouseY);
+                            }
+                            dest = graph.getClickedNode(mouseX, mouseY);
                             Edge edge;
-                            edge.source = source;
-                            edge.dest = destination;
+                            edge.source = src;
+                            edge.dest = dest;
                             std::cout<<weightText<<"\n";
-                            if(source == destination) {
+                            if(src == dest) {
                                 printf("Duplicate node\n");
                             }
                             else if(weightText.empty()){
@@ -95,7 +126,7 @@ void Dijkstra::EventHandler(){
                             }
                         }
                         else{
-                            source = graph.getClickedNode(mouseX, mouseY);
+                            src = graph.getClickedNode(mouseX, mouseY);
                             isNodeClicked = true;
                         }
                     }
@@ -104,7 +135,6 @@ void Dijkstra::EventHandler(){
                             printf("Node too near\n");
                         }
                         else {
-                            printf("Program log: Button pressed\n");
                             SDL_RenderPresent(renderer);
                             Node node(i, event.button.x, event.button.y, {255, 255, 255});
                             graph.addNode(node);
@@ -115,6 +145,13 @@ void Dijkstra::EventHandler(){
             }
         }
         SDL_RenderClear(renderer);
+        startButton.render(renderer, font);
+        selectDestinationButton.render(renderer, font);
+        selectSourceButton.render(renderer, font);
+        if(selectSource)
+            selectSourceButton.outer(renderer);
+        if(selectDestination)
+            selectDestinationButton.outer(renderer);
         render();
         SDL_RenderPresent(renderer);
     }
@@ -150,4 +187,35 @@ void Dijkstra::DrawCircle(int center_x, int center_y, int radius) {
             P += (tx - diameter);
         }
     }
+}
+
+void Dijkstra::shortestPathFinder() {
+    std::map<Node, int> distances;
+    std::vector<Node> vertices = graph.getVertices();
+    std::vector<Node> shortestPath;
+    distances[source] = 0;
+    for(auto &node:vertices){
+        if(source == node)
+            continue;
+        distances[node] = 100000;
+    }
+    pq.push(std::make_pair(0, source));
+    while(!pq.empty()){
+        Node minimumNode = pq.top().second;
+        printf("%d\n", minimumNode.value);
+        pq.pop();
+        std::vector<std::pair<Node, int>> adjacentVertices = graph.children(minimumNode);
+        std::vector<std::pair<Node, int>>::iterator itr;
+        for(itr = adjacentVertices.begin(); itr != adjacentVertices.end(); itr++){
+            int distance = distances[minimumNode] + itr->second;
+            if(distance < distances[itr->first]){
+                distances[itr->first] = distance;
+                pq.push(std::make_pair(distances[itr->first], itr->first));
+            }
+        }
+    }
+    // Print shortest distances stored in distance[]
+    printf("Vertex   Distance from Source\n");
+    for (auto & vertex : vertices)
+        printf("%d \t\t %d\n", vertex.value, distances[vertex]);
 }

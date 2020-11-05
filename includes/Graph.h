@@ -30,6 +30,8 @@ public:
 	bool isPossible(int x,int y);
 
 	Node getClickedNode(int x, int y);
+
+	std::vector<Node> getVertices();
 };
 
 

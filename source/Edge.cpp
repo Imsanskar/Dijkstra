@@ -18,9 +18,9 @@ void Edge::render(SDL_Renderer *renderer, TTF_Font *font) const{
     float c = source.yPos - (slope * source.xPos);
     float dist = (dest.xPos - source.xPos) * (dest.xPos - source.xPos) + (dest.yPos - source.yPos) * (dest.yPos - source.yPos);
     float distance=std::sqrt(dist);
-    float vecX = 50 * (source.xPos - midX)/distance;
-    float vecY = 50 * (source.yPos - midY)/distance;
-    float radius=40;
+    float vecX = 20 * (source.xPos - midX)/distance;
+    float vecY = 20 * (source.yPos - midY)/distance;
+    int radius=source.radius;
 
     int xsource = source.xPos-(source.xPos-dest.xPos)*radius / distance;
     int ysource = source.yPos-(source.yPos-dest.yPos)/distance*radius;
@@ -36,6 +36,8 @@ void Edge::render(SDL_Renderer *renderer, TTF_Font *font) const{
     SDL_RenderDrawLine(renderer, midX, midY, midX+(vecX*cos(-pi/4)-vecY*sin(-pi/4)), midY+(vecX*sin(-pi/4)+vecY*cos(-pi/4)));
 
     Texture texture;
-    texture.loadFromText(renderer, std::to_string(weight), {76, 86, 106}, font);
-    texture.render(renderer, midX + 2 * vecX, midY + 2 * vecY);
+    texture.loadFromText(renderer, std::to_string(weight), {216, 222, 233}, font);
+//    texture.render(renderer, midX + 2 * vecX, midY + 2 * vecY);
+    texture.render(renderer, static_cast<int>(midX) + 5, static_cast<int>(midY) + 3);
+
 }

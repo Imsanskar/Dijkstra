@@ -10,13 +10,12 @@
 
 Graph::Graph() {
 //    TTF_Init();
-    std::string path= "../Media/Fonts/font.ttf";
-    font = TTF_OpenFont(path.c_str(), 30);
+    std::string path= "./Media/Fonts/font2.ttf";
+    font = TTF_OpenFont(path.c_str(), 20);
     if(font == nullptr){
         std::cout<<TTF_GetError()<<"\n";
     }
 }
-
 
 void Graph::addNode(Node node){
 	edges[node] = {};
@@ -72,6 +71,14 @@ Node Graph::getClickedNode(int x, int y) {
 //To be implemented
 std::vector<std::pair<Node, int>> Graph::children(Node node) {
     return edges[node];
+}
+
+std::vector<Node> Graph::getVertices() {
+    std::vector<Node> vertices;
+    for(auto &node:edges){
+        vertices.push_back(node.first);
+    }
+    return vertices;
 }
 
 
