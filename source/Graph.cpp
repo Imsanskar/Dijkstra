@@ -10,7 +10,7 @@
 
 Graph::Graph() {
 //    TTF_Init();
-    std::string path= "./Media/Fonts/font2.ttf";
+    std::string path= "../Media/Fonts/font2.ttf";
     font = TTF_OpenFont(path.c_str(), 20);
     if(font == nullptr){
         std::cout<<TTF_GetError()<<"\n";

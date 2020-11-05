@@ -18,7 +18,7 @@
 Dijkstra::Dijkstra(const int height, const int width){
     window = SDL_CreateWindow("Dijkstra", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, width, height, SDL_WINDOW_SHOWN);
     renderer = SDL_CreateRenderer(window, -1, 0);
-    std::string path= "./Media/Fonts/font2.ttf";
+    std::string path= "../Media/Fonts/font2.ttf";
     weightText = "";
     font = TTF_OpenFont(path.c_str(), 20);
     rectangle = {950, 660, 50, 30};
@@ -31,7 +31,7 @@ Dijkstra::Dijkstra(const int height, const int width){
 
 void Dijkstra::render(){
     graph.render(renderer);
-    std::string path= "./Media/Fonts/font2.ttf";
+    std::string path= "../Media/Fonts/font2.ttf";
     Texture weightTextTexture(path);
     if(isNodeClicked) {
         SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);

@@ -18,7 +18,7 @@ private:
 	SDL_Texture *texture;
 public:
 	//Constructor
-	Texture(const std::string& fontPath = "./Media/Fonts/font.ttf");
+	Texture(const std::string& fontPath = "../Media/Fonts/font.ttf");
 
 	//Dealloacted the memory
 	~Texture();

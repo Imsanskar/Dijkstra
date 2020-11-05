@@ -9,6 +9,17 @@
 
 Edge::Edge()= default;
 
+void drawline(SDL_Renderer *renderer, int xsource, int ysource, int xdest, int ydest)
+{
+    SDL_RenderDrawLine(renderer, xsource, ysource, xdest, ydest);
+    SDL_RenderDrawLine(renderer, xsource+1, ysource, xdest+1, ydest);
+    SDL_RenderDrawLine(renderer, xsource, ysource+1, xdest, ydest+1);
+    SDL_RenderDrawLine(renderer, xsource-1, ysource, xdest-1, ydest);
+    SDL_RenderDrawLine(renderer, xsource, ysource-1, xdest, ydest-1);
+
+
+}
+
 
 void Edge::render(SDL_Renderer *renderer, TTF_Font *font) const{
     const float pi = 2 * acos(0.0f);
@@ -27,13 +38,15 @@ void Edge::render(SDL_Renderer *renderer, TTF_Font *font) const{
     int xdest  = dest.xPos+(source.xPos-dest.xPos)/distance*radius;
     int ydest  = dest.yPos+(source.yPos-dest.yPos)/distance*radius;
     SDL_SetRenderDrawColor(renderer, 0, 0, 0, SDL_ALPHA_OPAQUE);
-    SDL_RenderDrawLine(renderer, xsource, ysource, xdest, ydest);
-    SDL_RenderDrawLine(renderer, xsource+1, ysource, xdest+1, ydest);
-    SDL_RenderDrawLine(renderer, xsource, ysource+1, xdest, ydest+1);
-    SDL_RenderDrawLine(renderer, xsource-1, ysource, xdest-1, ydest);
-    SDL_RenderDrawLine(renderer, xsource, ysource-1, xdest, ydest-1);
-    SDL_RenderDrawLine(renderer, midX, midY, midX+(vecX*cos(pi/4)-vecY*sin(pi/4)), midY+(vecX*sin(pi/4)+vecY*cos(pi/4)));
-    SDL_RenderDrawLine(renderer, midX, midY, midX+(vecX*cos(-pi/4)-vecY*sin(-pi/4)), midY+(vecX*sin(-pi/4)+vecY*cos(-pi/4)));
+    drawline(renderer, xsource, ysource, xdest, ydest);
+    drawline(renderer, midX, midY, midX+(vecX*cos(pi/4)-vecY*sin(pi/4)), midY+(vecX*sin(pi/4)+vecY*cos(pi/4)));
+    drawline(renderer, midX, midY, midX+(vecX*cos(-pi/4)-vecY*sin(-pi/4)), midY+(vecX*sin(-pi/4)+vecY*cos(-pi/4)));//    SDL_RenderDrawLine(renderer, xsource, ysource, xdest, ydest);
+//    SDL_RenderDrawLine(renderer, xsource+1, ysource, xdest+1, ydest);
+//    SDL_RenderDrawLine(renderer, xsource, ysource+1, xdest, ydest+1);
+//    SDL_RenderDrawLine(renderer, xsource-1, ysource, xdest-1, ydest);
+//    SDL_RenderDrawLine(renderer, xsource, ysource-1, xdest, ydest-1);
+//    SDL_RenderDrawLine(renderer, midX, midY, midX+(vecX*cos(pi/4)-vecY*sin(pi/4)), midY+(vecX*sin(pi/4)+vecY*cos(pi/4)));
+//    SDL_RenderDrawLine(renderer, midX, midY, midX+(vecX*cos(-pi/4)-vecY*sin(-pi/4)), midY+(vecX*sin(-pi/4)+vecY*cos(-pi/4)));
 
     Texture texture;
     texture.loadFromText(renderer, std::to_string(weight), {216, 222, 233}, font);
@@ -41,3 +54,5 @@ void Edge::render(SDL_Renderer *renderer, TTF_Font *font) const{
     texture.render(renderer, static_cast<int>(midX) + 5, static_cast<int>(midY) + 3);
 
 }
+
+
