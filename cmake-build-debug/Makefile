@@ -143,6 +143,33 @@ DSA_PROJECT/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/DSA_PROJECT.dir/build.make CMakeFiles/DSA_PROJECT.dir/build
 .PHONY : DSA_PROJECT/fast
 
+allbutton.o: allbutton.cpp.o
+
+.PHONY : allbutton.o
+
+# target to build an object file
+allbutton.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DSA_PROJECT.dir/build.make CMakeFiles/DSA_PROJECT.dir/allbutton.cpp.o
+.PHONY : allbutton.cpp.o
+
+allbutton.i: allbutton.cpp.i
+
+.PHONY : allbutton.i
+
+# target to preprocess a source file
+allbutton.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DSA_PROJECT.dir/build.make CMakeFiles/DSA_PROJECT.dir/allbutton.cpp.i
+.PHONY : allbutton.cpp.i
+
+allbutton.s: allbutton.cpp.s
+
+.PHONY : allbutton.s
+
+# target to generate assembly for a file
+allbutton.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DSA_PROJECT.dir/build.make CMakeFiles/DSA_PROJECT.dir/allbutton.cpp.s
+.PHONY : allbutton.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -278,6 +305,33 @@ source/Node.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/DSA_PROJECT.dir/build.make CMakeFiles/DSA_PROJECT.dir/source/Node.cpp.s
 .PHONY : source/Node.cpp.s
 
+source/allbutton.o: source/allbutton.cpp.o
+
+.PHONY : source/allbutton.o
+
+# target to build an object file
+source/allbutton.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DSA_PROJECT.dir/build.make CMakeFiles/DSA_PROJECT.dir/source/allbutton.cpp.o
+.PHONY : source/allbutton.cpp.o
+
+source/allbutton.i: source/allbutton.cpp.i
+
+.PHONY : source/allbutton.i
+
+# target to preprocess a source file
+source/allbutton.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DSA_PROJECT.dir/build.make CMakeFiles/DSA_PROJECT.dir/source/allbutton.cpp.i
+.PHONY : source/allbutton.cpp.i
+
+source/allbutton.s: source/allbutton.cpp.s
+
+.PHONY : source/allbutton.s
+
+# target to generate assembly for a file
+source/allbutton.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DSA_PROJECT.dir/build.make CMakeFiles/DSA_PROJECT.dir/source/allbutton.cpp.s
+.PHONY : source/allbutton.cpp.s
+
 source/button.o: source/button.cpp.o
 
 .PHONY : source/button.o
@@ -341,6 +395,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... DSA_PROJECT"
+	@echo "... allbutton.o"
+	@echo "... allbutton.i"
+	@echo "... allbutton.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
@@ -356,6 +413,9 @@ help:
 	@echo "... source/Node.o"
 	@echo "... source/Node.i"
 	@echo "... source/Node.s"
+	@echo "... source/allbutton.o"
+	@echo "... source/allbutton.i"
+	@echo "... source/allbutton.s"
 	@echo "... source/button.o"
 	@echo "... source/button.i"
 	@echo "... source/button.s"

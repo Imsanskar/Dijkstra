@@ -84,6 +84,12 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/home/sgr/CLionProjects/DSA_Projects/allbutton.cpp">
+			<Option target="DSA_PROJECT"/>
+		</Unit>
+		<Unit filename="/home/sgr/CLionProjects/DSA_Projects/allbutton.h">
+			<Option target="DSA_PROJECT"/>
+		</Unit>
 		<Unit filename="/home/sgr/CLionProjects/DSA_Projects/includes/Djikstra.h">
 			<Option target="DSA_PROJECT"/>
 		</Unit>
@@ -94,6 +100,9 @@
 			<Option target="DSA_PROJECT"/>
 		</Unit>
 		<Unit filename="/home/sgr/CLionProjects/DSA_Projects/includes/Node.h">
+			<Option target="DSA_PROJECT"/>
+		</Unit>
+		<Unit filename="/home/sgr/CLionProjects/DSA_Projects/includes/allbutton.h">
 			<Option target="DSA_PROJECT"/>
 		</Unit>
 		<Unit filename="/home/sgr/CLionProjects/DSA_Projects/includes/button.h">
@@ -115,6 +124,9 @@
 			<Option target="DSA_PROJECT"/>
 		</Unit>
 		<Unit filename="/home/sgr/CLionProjects/DSA_Projects/source/Node.cpp">
+			<Option target="DSA_PROJECT"/>
+		</Unit>
+		<Unit filename="/home/sgr/CLionProjects/DSA_Projects/source/allbutton.cpp">
 			<Option target="DSA_PROJECT"/>
 		</Unit>
 		<Unit filename="/home/sgr/CLionProjects/DSA_Projects/source/button.cpp">
