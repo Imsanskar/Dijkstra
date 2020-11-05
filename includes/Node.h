@@ -41,6 +41,8 @@ public:
     bool operator >(const Node node) const;
 
 	bool operator ==(const Node &node) const;
+
+    bool operator !=(const Node &node) const;
 };
 
 

@@ -28,6 +28,8 @@ private:
     Node source, destination;
     std::string weightText;
     bool selectSource, selectDestination, isStartSelected;
+    std::vector<std::pair<Node, int>> shortestPath;
+    std::map<Node, Node> previousNodes;
     std::priority_queue<std::pair<int, Node>, std::vector<std::pair<int, Node>>, std::greater<std::pair<int, Node>>> pq;
 public:
 	Dijkstra(const int height, const int width);

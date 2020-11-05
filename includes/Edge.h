@@ -17,7 +17,7 @@ public:
 	//get the co ordinate distance between the nodes
 	int getDistance() const;
 
-	void render(SDL_Renderer *renderer, TTF_Font *font) const;
+	void render(SDL_Renderer *renderer, TTF_Font *font, SDL_Color color = {0,0,0}) const;
 };
 
 

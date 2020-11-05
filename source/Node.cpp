@@ -85,3 +85,7 @@ bool Node::operator ==(const Node &node) const {
 bool Node::operator>(const Node node) const {
     return node.value > this->value;
 }
+
+bool Node::operator!=(const Node &node) const {
+    return this->xPos != node.xPos || this->yPos != node.yPos || this->value != node.value;
+}
