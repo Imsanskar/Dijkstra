@@ -14,6 +14,7 @@
 #include <iostream>
 #include <Button.h>
 #include <algorithm>
+#include <future>
 
 
 Dijkstra::Dijkstra(const int height, const int width){
@@ -28,7 +29,6 @@ Dijkstra::Dijkstra(const int height, const int width){
     selectSource = false;
     selectDestination = false;
     isStartSelected = false;
-//	TTF_Init();
 }
 
 void Dijkstra::render(){
@@ -45,12 +45,29 @@ void Dijkstra::render(){
             weightTextTexture.render(renderer, 950, 660);
         }
     }
+    std::string path_dijkstra = " ";
     for(auto &node:shortestPath){
         Edge edge;
+        path_dijkstra.append(std::to_string(node.first.value));
+        path_dijkstra.append("->");
         edge.source = previousNodes[node.first];
         edge.dest = node.first;
         edge.render(renderer, font, {255, 0, 0});
     }
+    if(path_dijkstra.size() > 2) {
+        path_dijkstra.pop_back();
+        path_dijkstra.pop_back();
+    }
+    Texture texture;
+    SDL_Rect  rect;
+    rect.x = 100,
+    rect.y = 640;
+    rect.h = 50;
+    rect.w = (path_dijkstra.size() - 1) * 10;
+    SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+    SDL_RenderFillRect(renderer, &rect);
+    texture.loadFromText(renderer, path_dijkstra, {255, 255, 255}, font);
+    texture.render(renderer, 100, 650);
 }
 
 void Dijkstra::EventHandler(){
@@ -210,14 +227,20 @@ void Dijkstra::shortestPathFinder() {
             continue;
         distances[node] = 100000;
     }
+    bool flag = true;
     pq.push(std::make_pair(0, graph.source));
     while(!pq.empty()){
         Node minimumNode = pq.top().second;
         pq.pop();
+        if(minimumNode == graph.destination){
+            flag = false;
+        }
         std::vector<std::pair<Node, int>> adjacentVertices = graph.children(minimumNode);
         std::vector<std::pair<Node, int>>::iterator itr;
         for(itr = adjacentVertices.begin(); itr != adjacentVertices.end(); itr++){
             int distance = distances[minimumNode] + itr->second;
+            if(distance >= distances[graph.destination])
+                continue;
             if(distance < distances[itr->first]){
                 distances[itr->first] = distance;
                 previousNodes[itr->first] = minimumNode;
@@ -228,9 +251,15 @@ void Dijkstra::shortestPathFinder() {
             edge.dest = itr->first;
             edge.render(renderer, font, {0, 0, 255});
             SDL_RenderPresent(renderer);
-            SDL_Delay(3000);
+            SDL_Delay(500);
         }
     }
+
+    if(flag){
+        printf("No path\n");
+        return ;
+    }
+
     // Print shortest distances stored in distance[]
     printf("Vertex   Distance from Source\n");
     for (auto & vertex : vertices)
@@ -242,5 +271,6 @@ void Dijkstra::shortestPathFinder() {
         shortestPath.emplace_back(std::make_pair(node, distances[node]));
         node = previousNodes[node];
     }
+    shortestPath.emplace_back(graph.source, 0);
     std::reverse(shortestPath.begin(), shortestPath.end());
 }
