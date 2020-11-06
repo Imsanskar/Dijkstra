@@ -2,8 +2,8 @@
 // Created by imsanskar on 2020-10-31.
 //
 
-#ifndef DSA_PROJECT_DJIKSTRA_H
-#define DSA_PROJECT_DJIKSTRA_H
+#ifndef DSA_PROJECT_DIJKSTRA_H
+#define DSA_PROJECT_DIJKSTRA_H
 
 #include "Node.h"
 #include "Edge.h"
@@ -39,4 +39,4 @@ public:
 	void shortestPathFinder();
 };
 
-#endif //DSA_PROJECT_DJIKSTRA_H
+#endif //DSA_PROJECT_DIJKSTRA_H

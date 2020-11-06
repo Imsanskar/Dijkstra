@@ -2,7 +2,7 @@
 // Created by imsanskar on 2020-10-31.
 //
 
-#include "../includes/Djikstra.h"
+#include "../includes/Dijkstra.h"
 #include <SDL2/SDL_events.h>
 #include <SDL2/SDL_keyboard.h>
 #include <SDL2/SDL_keycode.h>

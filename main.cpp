@@ -7,7 +7,7 @@
 #include <SDL2/SDL_video.h>
 #include <string>
 #include <vector>
-#include "Djikstra.h"
+#include "Dijkstra.h"
 
 int main(int argc, char *argv[])
 {
