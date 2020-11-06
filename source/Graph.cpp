@@ -27,6 +27,12 @@ void Graph::addNode(Node node){
 }
 
 void Graph::addEdge(Edge edge){
+    for(auto &nodes:edges[edge.source]){
+        if(edge.dest == nodes.first){
+            nodes.second = edge.weight;
+            return;
+        }
+    }
     printf("Edge created. Source Value:%d x-coord:%d y-coord:%d\n", edge.source.value, edge.source.xPos, edge.source.yPos);
     edges[edge.source].push_back(std::make_pair(edge.dest, edge.weight));
 }
