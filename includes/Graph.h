@@ -15,6 +15,7 @@ class Graph{
 public:
 	std::map<Node,std::vector<std::pair<Node,int>>> edges;
 	TTF_Font *font;
+	Node source, destination;
 public:
     Graph();
 

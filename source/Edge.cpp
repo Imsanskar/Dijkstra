@@ -29,15 +29,15 @@ void Edge::render(SDL_Renderer *renderer, TTF_Font *font, SDL_Color color) const
     float c = source.yPos - (slope * source.xPos);
     float dist = (dest.xPos - source.xPos) * (dest.xPos - source.xPos) + (dest.yPos - source.yPos) * (dest.yPos - source.yPos);
     float distance=std::sqrt(dist);
-    float vecX = 20 * (source.xPos - midX)/distance;
-    float vecY = 20 * (source.yPos - midY)/distance;
+    float vecX = source.radius * (source.xPos - midX)/distance;
+    float vecY = source.radius * (source.yPos - midY)/distance;
     int radius=source.radius;
 
     int xsource = source.xPos-(source.xPos-dest.xPos)*radius / distance;
     int ysource = source.yPos-(source.yPos-dest.yPos)/distance*radius;
     int xdest  = dest.xPos+(source.xPos-dest.xPos)/distance*radius;
     int ydest  = dest.yPos+(source.yPos-dest.yPos)/distance*radius;
-    SDL_SetRenderDrawColor(renderer, color.r, color.g, color.g, SDL_ALPHA_OPAQUE);
+    SDL_SetRenderDrawColor(renderer, color.r, color.g, color.b, SDL_ALPHA_OPAQUE);
     drawline(renderer, xsource, ysource, xdest, ydest);
     drawline(renderer, midX, midY, midX+(vecX*cos(pi/4)-vecY*sin(pi/4)), midY+(vecX*sin(pi/4)+vecY*cos(pi/4)));
     drawline(renderer, midX, midY, midX+(vecX*cos(-pi/4)-vecY*sin(-pi/4)), midY+(vecX*sin(-pi/4)+vecY*cos(-pi/4)));//    SDL_RenderDrawLine(renderer, xsource, ysource, xdest, ydest);

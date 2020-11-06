@@ -58,7 +58,8 @@ void Graph::render(SDL_Renderer *renderer){
             edge.render(renderer, font);
         }
     }
-
+    source.render(renderer, font, {0, 240, 0});
+    destination.render(renderer, font, {255, 0, 0});
 }
 
 Node Graph::getClickedNode(int x, int y) {

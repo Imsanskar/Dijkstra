@@ -34,7 +34,7 @@ public:
     bool isPossible(int x,int y) const;
 
 	//renderer
-	void render(SDL_Renderer *renderer, TTF_Font *font) const;
+	void render(SDL_Renderer *renderer, TTF_Font *font, SDL_Color _color = {255, 255, 255}) const;
 
 	bool operator <(const Node node) const;
 

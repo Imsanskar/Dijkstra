@@ -27,6 +27,7 @@ Dijkstra::Dijkstra(const int height, const int width){
     mouseX = mouseY = 0;
     selectSource = false;
     selectDestination = false;
+    isStartSelected = false;
 //	TTF_Init();
 }
 
@@ -65,14 +66,16 @@ void Dijkstra::EventHandler(){
     while(flag){
         SDL_SetRenderDrawColor(renderer, 76, 188, 187, 255);
         while(SDL_PollEvent(&event) != 0){
+            SDL_GetMouseState(&mouseX, &mouseY);
             if(event.type == SDL_QUIT)
                 flag = false;
             if(event.type == SDL_KEYDOWN){
                 //escape functionality for cancelling the creation of edge
-                if(event.key.keysym.sym == SDLK_ESCAPE) {
-                    printf("Program log:Edge creation cancelled\n");
+                if(event.key.keysym.sym == SDLK_ESCAPE && (isNodeClicked || selectSource || selectDestination)) {
+                    printf("Program log:Selected event cancelled\n");
                     isNodeClicked = false;
-                    break;
+                    selectSource = false;
+                    selectDestination = false;
                 }
 
                 //handle backspace
@@ -82,29 +85,26 @@ void Dijkstra::EventHandler(){
             }
             if(event.type == SDL_TEXTINPUT)
                 weightText += event.text.text;
-            if(event.type == SDL_MOUSEBUTTONDOWN){
-                SDL_GetMouseState(&mouseX, &mouseY);
+            if(event.type == SDL_MOUSEBUTTONDOWN){;
                 if(event.button.button == SDL_BUTTON_LEFT){
 //                    SDL_GetMouseState(&mouseX, &mouseY);
-                    printf("%d %d\n", mouseX, mouseY);
                     if(selectSourceButton.isClicked(mouseX, mouseY)) {
                         selectSource = true;
                     }
                     else if(startButton.isClicked(mouseX, mouseY)){
-                        shortestPathFinder();
-                        startButton.outer(renderer);
+                        isStartSelected = true;
                     }
                     else if(selectDestinationButton.isClicked(mouseX, mouseY)) {
                         selectDestination = true;
                     }
                     else if(graph.isNodeClicked(mouseX, mouseY) && selectSource){
-                        source = graph.getClickedNode(mouseX, mouseY);
-                        printf("Selected node value: %d\n", source.value);
+                        graph.source = graph.getClickedNode(mouseX, mouseY);
+                        printf("Selected node value: %d\n", graph.source.value);
                         selectSource = false;
                     }
                     else if(graph.isNodeClicked(mouseX, mouseY) && selectDestination){
-                        destination = graph.getClickedNode(mouseX, mouseY);
-                        printf("Selected node value: %d\n", destination.value);
+                        graph.destination = graph.getClickedNode(mouseX, mouseY);
+                        printf("Selected node value: %d\n", graph.destination.value);
                         selectDestination = false;
                     }
                     else if(graph.isNodeClicked(mouseX, mouseY)){
@@ -136,7 +136,7 @@ void Dijkstra::EventHandler(){
                             isNodeClicked = true;
                         }
                     }
-                    else if(!isNodeClicked){
+                    else if(!isNodeClicked && !isStartSelected && !selectSource && !selectDestination){
                         if(graph.isPossible(mouseX, mouseY)){
                             printf("Node too near\n");
                         }
@@ -159,6 +159,10 @@ void Dijkstra::EventHandler(){
         if(selectDestination)
             selectDestinationButton.outer(renderer);
         render();
+        if(isStartSelected) {
+            shortestPathFinder();
+            isStartSelected = false;
+        }
         SDL_RenderPresent(renderer);
     }
     SDL_StopTextInput();
@@ -198,15 +202,15 @@ void Dijkstra::DrawCircle(int center_x, int center_y, int radius) {
 void Dijkstra::shortestPathFinder() {
     std::map<Node, int> distances;
     std::vector<Node> vertices = graph.getVertices();
-    distances[source] = 0;
+    distances[graph.source] = 0;
     previousNodes = {};
     shortestPath = {};
     for(auto &node:vertices){
-        if(source == node)
+        if(graph.source == node)
             continue;
         distances[node] = 100000;
     }
-    pq.push(std::make_pair(0, source));
+    pq.push(std::make_pair(0, graph.source));
     while(!pq.empty()){
         Node minimumNode = pq.top().second;
         pq.pop();
@@ -219,6 +223,12 @@ void Dijkstra::shortestPathFinder() {
                 previousNodes[itr->first] = minimumNode;
                 pq.push(std::make_pair(distances[itr->first], itr->first));
             }
+            Edge edge;
+            edge.source = previousNodes[itr->first];
+            edge.dest = itr->first;
+            edge.render(renderer, font, {0, 0, 255});
+            SDL_RenderPresent(renderer);
+            SDL_Delay(3000);
         }
     }
     // Print shortest distances stored in distance[]
@@ -226,12 +236,11 @@ void Dijkstra::shortestPathFinder() {
     for (auto & vertex : vertices)
         printf("%d \t\t %d\n", vertex.value, distances[vertex]);
 
-    Node node = destination;
-    while(node != source){
+    Node node = graph.destination;
+    Node nullNode;
+    while(node != graph.source && node != nullNode){
         shortestPath.emplace_back(std::make_pair(node, distances[node]));
         node = previousNodes[node];
     }
-//    shortestPath.emplace_back(source, distances[source]);
     std::reverse(shortestPath.begin(), shortestPath.end());
-    std::cout<<node.value<<"\n";
 }

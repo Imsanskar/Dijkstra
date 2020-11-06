@@ -21,8 +21,8 @@ Node::Node(int _value, int x, int y, SDL_Color _color){
 }
 
 
-void Node::render(SDL_Renderer *renderer, TTF_Font *font) const{
-    SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
+void Node::render(SDL_Renderer *renderer, TTF_Font *font, SDL_Color _color) const{
+    SDL_SetRenderDrawColor(renderer, _color.r, _color.g, _color.b, 255);
     int center_x = xPos;
     int center_y = yPos;
     const int diameter=2*radius;
