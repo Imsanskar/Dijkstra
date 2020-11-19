@@ -20,7 +20,7 @@ private:
 	SDL_Renderer *renderer;
 	SDL_Event event{};
 	Graph graph;
-	TTF_Font *font;
+	TTF_Font *font,*fontHelptext;
 	SDL_Rect rectangle;
 	bool isNodeClicked;
     int mouseX, mouseY;

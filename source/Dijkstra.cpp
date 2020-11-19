@@ -23,7 +23,8 @@ Dijkstra::Dijkstra(const int height, const int width){
     std::string path= "./Media/Fonts/font2.ttf";
     weightText = "";
     font = TTF_OpenFont(path.c_str(), 20);
-    rectangle = {950, 660, 50, 30};
+    fontHelptext = TTF_OpenFont(path.c_str(), 30);
+    rectangle = {950, 660, 50, 22};
     isNodeClicked = false;
     mouseX = mouseY = 0;
     selectSource = false;
@@ -33,9 +34,14 @@ Dijkstra::Dijkstra(const int height, const int width){
 
 void Dijkstra::render(){
     graph.render(renderer);
-    std::string path= "../Media/Fonts/font2.ttf";
-    Texture weightTextTexture(path);
+    Texture weightTextTexture;
+    std::string helpText;
+    SDL_Color colorHelperText = {0, 0, 0};
     if(isNodeClicked) {
+        helpText = "Enter the edge value and click another node to create a edge";
+        Texture texture;
+        texture.loadFromText(renderer, helpText, colorHelperText, fontHelptext);
+        texture.render(renderer, 30, 30);
         SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
         SDL_RenderFillRect(renderer, &rectangle);
         DrawCircle(src.xPos, src.yPos, source.radius + 3);
@@ -44,6 +50,12 @@ void Dijkstra::render(){
             weightTextTexture.loadFromText(renderer, weightText, color, font);
             weightTextTexture.render(renderer, 950, 660);
         }
+    }
+    else{
+        helpText = "Click anywhere to create node";
+        Texture texture;
+        texture.loadFromText(renderer, helpText, colorHelperText, fontHelptext);
+        texture.render(renderer, 30, 30);
     }
     std::string path_dijkstra = " ";
     for(auto &node:shortestPath){
