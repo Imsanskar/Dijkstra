@@ -30,6 +30,7 @@ Dijkstra::Dijkstra(const int height, const int width){
     selectSource = false;
     selectDestination = false;
     isStartSelected = false;
+	graph.font = font;
 }
 
 void Dijkstra::render(){
@@ -37,6 +38,10 @@ void Dijkstra::render(){
     Texture weightTextTexture;
     std::string helpText;
     SDL_Color colorHelperText = {0, 0, 0};
+
+	/*
+	 * if the node is clicked field for text editing appears
+	*/
     if(isNodeClicked) {
         helpText = "Enter the edge value and click another node to create a edge";
         Texture texture;
@@ -57,7 +62,11 @@ void Dijkstra::render(){
         texture.loadFromText(renderer, helpText, colorHelperText, fontHelptext);
         texture.render(renderer, 30, 30);
     }
+
+	//string to store the path 
     std::string path_dijkstra = " ";
+
+	//change the color of the final path to red
     for(auto &node:shortestPath){
         Edge edge;
         path_dijkstra.append(std::to_string(node.first.value));
@@ -112,8 +121,10 @@ void Dijkstra::EventHandler(){
                     weightText.pop_back();
                 }
             }
+			//handle text input
             if(event.type == SDL_TEXTINPUT)
                 weightText += event.text.text;
+			//handles event on clicking the  mouse
             if(event.type == SDL_MOUSEBUTTONDOWN){;
                 if(event.button.button == SDL_BUTTON_LEFT){
 //                    SDL_GetMouseState(&mouseX, &mouseY);
@@ -229,35 +240,73 @@ void Dijkstra::DrawCircle(int center_x, int center_y, int radius) {
 }
 
 void Dijkstra::shortestPathFinder() {
+	//map to store distance of the nodes form the origin
     std::map<Node, int> distances;
+
+	//vector ko store all the vertices
     std::vector<Node> vertices = graph.getVertices();
+
+	//set the distance of the source to zero
     distances[graph.source] = 0;
+
+	//list of all the previous nodes
     previousNodes = {};
+
+	//container to store the shortest path
     shortestPath = {};
+
+	//set the distance to infinity for nodes other than the source
     for(auto &node:vertices){
         if(graph.source == node)
             continue;
         distances[node] = 100000;
     }
+
+	/*
+     * flag to find if the path is found or not
+     * true if path is not found
+     * false if the path is not found
+    */
     bool flag = true;
+
+	//push the initial state to the priority queue
     pq.push(std::make_pair(0, graph.source));
+
+	//main loop
     while(!pq.empty()){
+		//pop the node with the least distance
         Node minimumNode = pq.top().second;
         pq.pop();
+
+		//if the path is found set the flag to false
         if(minimumNode == graph.destination){
             flag = false;
         }
+
+		//get the adjacent vertices of the node along with their weight
         std::vector<std::pair<Node, int>> adjacentVertices = graph.children(minimumNode);
+
+		//iterator for looping across the adjacent vertices
         std::vector<std::pair<Node, int>>::iterator itr;
+
+
         for(itr = adjacentVertices.begin(); itr != adjacentVertices.end(); itr++){
             int distance = distances[minimumNode] + itr->second;
+			/*
+             * Optimization
+             * Does not evaluate the node if the current distance is greater than the previous distance
+            */
             if(distance >= distances[graph.destination])
                 continue;
+
+			//update the distance of the node if the distance is less
             if(distance < distances[itr->first]){
                 distances[itr->first] = distance;
                 previousNodes[itr->first] = minimumNode;
                 pq.push(std::make_pair(distances[itr->first], itr->first));
             }
+			
+			//For the rendering of the path
             Edge edge;
             edge.source = previousNodes[itr->first];
             edge.dest = itr->first;
@@ -267,6 +316,9 @@ void Dijkstra::shortestPathFinder() {
         }
     }
 
+	/*
+     * Use of the flag
+     */
     if(flag){
         printf("No path\n");
         return ;
@@ -279,10 +331,16 @@ void Dijkstra::shortestPathFinder() {
 
     Node node = graph.destination;
     Node nullNode;
+
+    //get the shortest path tracking back through the previous nodes
     while(node != graph.source && node != nullNode){
         shortestPath.emplace_back(std::make_pair(node, distances[node]));
         node = previousNodes[node];
     }
+
+	//push the source to the shortest path
     shortestPath.emplace_back(graph.source, 0);
+
+	//reverse the shortest path to get the correct order
     std::reverse(shortestPath.begin(), shortestPath.end());
 }

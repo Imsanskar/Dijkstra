@@ -8,11 +8,6 @@
 #include <iostream>
 
 Graph::Graph() {
-    std::string path= "../Media/Fonts/font2.ttf";
-    font = TTF_OpenFont(path.c_str(), 20);
-    if(font == nullptr){
-        std::cout<<TTF_GetError()<<"\n";
-    }
 }
 
 void Graph::addNode(Node node){
@@ -20,6 +15,9 @@ void Graph::addNode(Node node){
 }
 
 void Graph::addEdge(Edge edge){
+	/*
+     * here nodes is a pair with first element a node and 2nd element as a weight
+    */
     for(auto &nodes:edges[edge.source]){
         if(edge.dest == nodes.first){
             nodes.second = edge.weight;
@@ -27,6 +25,9 @@ void Graph::addEdge(Edge edge){
         }
     }
     printf("Edge created. Source Value:%d x-coord:%d y-coord:%d\n", edge.source.value, edge.source.xPos, edge.source.yPos);
+	/*
+     * Directed graph implementation
+    */	
     edges[edge.source].push_back(std::make_pair(edge.dest, edge.weight));
 }
 
