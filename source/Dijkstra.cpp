@@ -70,7 +70,7 @@ void Dijkstra::render(){
 
 	//string to store the path 
     std::string path_dijkstra = " ";
-
+    int i=0;
 	//change the color of the final path to red
     for(auto &node:shortestPath){
         Edge edge;
@@ -78,7 +78,8 @@ void Dijkstra::render(){
         path_dijkstra.append("->");
         edge.source = previousNodes[node.first];
         edge.dest = node.first;
-        edge.render(renderer, font, {255, 0, 0});
+       if(i){ edge.render(renderer, font, {255, 0, 0});}
+       i++;
     }
     if(path_dijkstra.size() > 2) {
         path_dijkstra.pop_back();
